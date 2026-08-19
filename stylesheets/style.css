@@ -1371,58 +1371,54 @@ ul.posts .series-parts-list li a:hover {
   .blog-post, section.post { /* Apply consistent mobile padding within these */
       padding: 0 15px; /* Example: inner padding for mobile blog/main page section content */
   }
-
-  /* Navigation mobile rules */
+/* Navigation mobile rules */
   .navigation {
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 10px 0;
+    align-items: center; /* Centers the logo and menu wrapper */
+    text-align: center;
+    padding: 20px 0 0 0; /* Adds breathing room at the very top */
     margin: 0;
-    padding-left: 15px; /* Adjust this value as needed for desired space */
+    /* We don't need to add a bottom border here because your global .navigation already has one! */
   }
+  
   .navigation .logo {
     position: static;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Pushes the menu down slightly from the logo */
     width: 100%;
     display: block;
     padding: 0;
+    text-align: center;
   }
+  
   .navigation .logo a {
-    position: static; /* Forces the logo to obey normal flow and padding */
+    position: static; 
     border-right: none;
-    padding: 10px 0;
-    display: block;
-    margin: 0;
+    padding: 0;
+    display: inline-block; /* Wraps tightly to the text for perfect centering */
+    margin: 0 auto;
     width: auto;
   }
 
-  .menu {
-    flex-direction: column;
-    align-items: flex-end; /* This aligns menu items to right on mobile */
-    justify-content: flex-start;
-    gap: 0;
-    padding: 0;
-    margin: 10px 0 0 0;
+  /* General Menu Container */
+  .menu { 
+    display: flex;
+    flex-direction: row; /* Flips the links from a vertical stack to a horizontal row */
+    flex-wrap: wrap; /* Safely wraps links to a new line if viewed on a very narrow screen */
+    align-items: center;
+    justify-content: center; /* Centers the row of links */
+    gap: 15px; /* Adds consistent spacing between each link */
+    padding: 0 0 15px 0; /* Adds space before the final bottom border */
+    margin: 0;
     width: 100%;
   }
 
-  /* General Menu Container */
-.menu { /* This block was duplicated; keeping one here */
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-
-
   .menu a {
-    padding: 15px 0;
-    display: block;
-    text-align: left;
+    padding: 5px 10px; /* Tighter padding for inline links */
+    display: inline-block; /* Un-blocks the links so they can sit side-by-side */
+    text-align: center;
     margin: 0;
-    border-top: 1px solid var(--block-border); /* Use variable for separator */
-    width: 100%;
+    border-top: none; /* Strips out the horizontal lines between links */
+    width: auto; /* Shrinks the bounding box to just fit the text */
   }
   .menu a:first-child {
     border-top: none;
