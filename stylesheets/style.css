@@ -1,0 +1,2581 @@
+
+
+/* Create a custom offline font that maps all heavy weights to the Regular local file */
+@font-face {
+  font-family: 'OfflineAcademic';
+  src: local('Hoefler Text'), local('Baskerville'), local('Georgia');
+  font-weight: 400; /* Regular */
+}
+
+@font-face {
+  font-family: 'OfflineAcademic';
+  src: local('Hoefler Text'), local('Baskerville'), local('Georgia');
+  font-weight: 700; /* When CSS asks for Bold, force it to use Regular */
+}
+
+@font-face {
+  font-family: 'OfflineAcademic';
+  src: local('Hoefler Text'), local('Baskerville'), local('Georgia');
+  font-weight: 800; /* When CSS asks for Extra Bold, force it to use Regular */
+}
+
+
+/* ==========================================================================
+   1. Theme Variables
+   ========================================================================== */
+
+   :root {
+  /* Herbarium Poster Dark Theme - Unified Gold Accents */
+  --background-color: #11100e; 
+  --text-color: #d9d1ba;       
+  --container-background: transparent;
+  --container-border: transparent;
+  
+  /* --- Unified Antique Gold Accents --- */
+  --highlight-color: #c0ab77;  
+  --link-color: #c0ab77;   
+  --link-hover-color: #d1c195;   /* NEW: Brighter gold for hover */    
+  --block-border: #c0ab77;     
+  --hr-color: #c0ab77;
+  --light-hr-color: #c0ab77;   
+  --tooltip-border-color: #c0ab77;
+  --tooltip-arrow-color: #c0ab77;
+  --blockquote-hover-border: #c0ab77; 
+  --nav-border-color: #c0ab77;
+  --logo-border-color: #c0ab77;
+  --blockquote-line-color: #c0ab77;
+
+  /* --- Remaining Dark Vintage Variables --- */
+  --blockquote-background: #171513; 
+  --blockquote-text: #a89f88;       
+  --pre-background: #171513;   
+  --nav-text-color: #a89f88;
+  --heading-color: #c0ab77;
+  --paragraph-color: #d9d1ba;
+  --papertitle-color: #c0ab77;
+  --conference-color: #706a59;
+  --list-item-color: #d9d1ba;
+  --logo-color: #c0ab77;
+  --blogname-color: #c0ab77;
+  --blogtitle-color: #c0ab77;
+  --strong-color: #d1c195;
+  --strong-shadow: none;
+  --tooltip-background: #11100e;
+  --tooltip-text-color: #a89f88;
+  --tooltip-shadow: rgba(0, 0, 0, 0.8);
+  --post-date-color: #928a74;  
+  --em-strong-bg: #292419;     
+  --blockquote-hover-text: #c0ab77;
+  --mathjax-highlight-background: #2b2518; 
+  --mathjax-highlight-text: #d1c195;
+  --main-page-fontsize: 18px;
+  --main-page-subheading-fontsize: 28px;
+}
+
+[data-theme="light"] {
+  /* Vintage Botanical Poster Light Theme - Viridian Glaze */
+  --background-color: #f1e9d8; 
+  --text-color: #3b362f;       
+  --container-background: transparent;
+  --container-border: transparent;
+  
+  /* --- Unified Viridian Accents --- */
+  --highlight-color: #4a6b2b;  
+  --link-color: #4a6b2b;  
+  --link-hover-color: #2c421a;   /* NEW: Deeper forest green for hover */     
+  --block-border: #4a6b2b;     
+  --hr-color: #4a6b2b;
+  --light-hr-color: #4a6b2b;   
+  --tooltip-border-color: #4a6b2b;
+  --blockquote-hover-border: #4a6b2b; 
+
+  /* --- Remaining Vintage Variables --- */
+  --blockquote-background: #e6dfcb; 
+  --blockquote-text: #4a453d;
+  --pre-background: #e6dfcb;   
+  --nav-text-color: #2b2823;
+  --nav-border-color: #8c8374;
+  --heading-color: #2b2823;
+  --paragraph-color: #3b362f;
+  --papertitle-color: #2b2823;
+  --conference-color: #6e675b;
+  --list-item-color: #3b362f;
+  --logo-color: #2b2823;
+  --blogname-color: #2b2823;
+  --blogtitle-color: #2b2823;
+  --logo-border-color: #3b362f;
+  --strong-color: #1a1815;
+  --strong-shadow: none;
+  --tooltip-background: #f1e9d8;
+  --tooltip-text-color: #3b362f;
+  --tooltip-arrow-color: #3b362f;
+  --tooltip-shadow: rgba(43, 40, 35, 0.15);
+  --post-date-color: #807768;  
+  --em-strong-bg: #dbe0d1;     
+  --blockquote-hover-text: #2b2823;
+  --blockquote-line-color: #a89f8e;
+  --mathjax-highlight-background: #e3d3b6; 
+  --mathjax-highlight-text: #2b2823;
+  --main-page-fontsize: 18px;
+  --main-page-subheading-fontsize: 28px;
+}
+
+/* ==========================================================================
+   2. Base Styles & Global Resets
+   ========================================================================== */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0;
+  margin: -40px; /* Adjust if this causes issues with full screen width */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  border: none;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   3. Global Typography
+   ========================================================================== */
+
+/* Global Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px auto;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  text-rendering: optimizelegibility;
+  line-height: 1.2em;
+  color: var(--heading-color);
+  font-style: normal;
+  font-variant: normal;
+}
+h1 { font-size: 24px; font-weight: 700; line-height: 26.4px; }
+h2 { font-size: 24px; font-weight: 500; line-height: 18px; }
+h3 { font-size: 20px; font-weight: 500; line-height: 20px; }
+h4 { font-size: 18px; font-weight: 500; }
+h5 { font-size: 16px; font-weight: 500; }
+h6 { font-size: 14px; font-weight: 500; }
+
+/* Paragraphs */
+p {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--paragraph-color);
+}
+
+/* Bold and Strong text */
+b {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--text-color);
+}
+strong {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--strong-color);
+  text-shadow: var(--strong-shadow);
+}
+
+/* Blockquote */
+blockquote {
+  margin: 0;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-size: 21px; /* Default size, will be overridden by more specific rules */
+  font-style: italic;
+  font-weight: 400;
+  line-height: 30px;
+  color: var(--blockquote-text);
+  background: var(--blockquote-background);
+  /* Do NOT set font-style: normal !important; here */
+}
+
+
+/* Preformatted text (e.g., code blocks) */
+pre {
+  overflow-x: auto;
+  padding: 10px 0;
+  width: 100%;
+  line-height: 1.2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif; /* Consider a monospace font here */
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+  background: var(--pre-background);
+}
+
+/* Lists */
+li, ol, ul {
+    color: var(--list-item-color);
+    padding: 0 5px;
+    margin-left: 20px;
+}
+ul.posts, ul.posts li { /* Specific list styles for blog post lists */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul.posts li {
+  margin-bottom: 20px;
+}
+ul.posts .datetime {
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  width: 130px;
+  text-transform: uppercase;
+  float: right;
+  color: var(--post-date-color); /* Using variable */
+  font-size: 10px;
+  text-align: right;
+}
+
+hr {
+  border: 0;
+  margin: 25px 0;
+  border-bottom: 1px solid var(--light-hr-color);
+}
+
+/* New: Thicker solid line for section breaks */
+.hr-section-break {
+  border: 0; /* Reset default border */
+  margin: 40px 0; /* More vertical space for a section break */
+  border-bottom: 3px solid var(--hr-color); /* Thicker and solid */
+  /* You can even change the color if you want, e.g.:
+  border-bottom: 3px solid var(--highlight-color); */
+}
+
+/* ==========================================================================
+   4. Global Layout & Components
+   ========================================================================== */
+
+header {
+  text-align: center;
+  font-family: 'Pacifico', cursive; /* Ensure this font is imported */
+  font-size: 1.5em;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  text-rendering: optimizelegibility;
+  color: #444; /* Convert to variable: var(--header-color) */
+}
+
+footer {
+  width: 100%;
+  max-width: 600px; /* Footer width limit */
+  line-height: 2em;
+  margin: auto;
+  padding-bottom: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px; /* Default wider width for main pages */
+  margin: 10px auto 20px;
+  border-radius: 7px;
+  border: 1px solid var(--container-border); /* Transparent */
+  position: relative;
+  background: var(--container-background); /* Transparent */
+  color: var(--text-color);
+}
+#container:before, #container:after {
+  content: " ";
+  display: table;
+}
+#container:after {
+  clear: both;
+}
+#container .block {
+  background: var(--container-background); /* Transparent */
+  border: 1px solid var(--container-border); /* Transparent */
+  border-top: 1px solid var(--block-border); /* Transparent */
+  border-bottom: 1px solid var(--block-border); /* Transparent */
+  padding: 30px 40px 24px;
+  text-align: center;
+  font-weight: bold; /* Keep if needed */
+}
+#container .block:first-child, #container .block + .block {
+  border-top: 0;
+}
+#container .block:last-child {
+  border-bottom: 0;
+}
+#container .block a.main {
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  padding: 2px 2px;
+  margin-right: 12px;
+  margin-bottom: 6px;
+}
+#container .block a.main:last-of-type {
+  margin-right: 0;
+}
+#container .block .button {
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  height: 20px;
+  overflow: hidden;
+}
+
+.content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  border-width: 0;
+  border-style: solid;
+  padding: 30px 60px; /* Global padding for content area */
+  margin: auto;
+}
+
+/* Links */
+a, .as-link {
+  text-decoration: none;
+  color: var(--link-color);
+  line-height: 1.4em;
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+a:hover, .as-link:hover { /* Consolidated hover for all links */
+  color: var(--link-hover-color); /* Uses your active theme's accent color */
+  text-decoration: none;         /* Removes the underline */
+  background-image: none;
+}
+
+
+a.main:hover, .as-link.main:hover { /* If specific .main hover needs unique style */
+    /* Adjust or remove if not needed */
+}
+
+/* Big Buttons */
+a.big-button, .as-link.big-button {
+  min-width: 30%;
+  border-radius: 3px;
+  -webkit-transition: all, 0.2s;
+  -moz-transition: all, 0.2s;
+  -ms-transition: all, 0.2s;
+  -o-transition: all, 0.2s;
+  transition: all, 0.2s;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 24px;
+  padding: 8px 17px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  border-width: 0;
+  border-style: solid;
+  border-color: #8ab; /* Consider variable */
+  background: #6f8f9f; /* Consider variable */
+  box-shadow: inset 0 -1px 0px rgba(0, 0, 0, 0.1);
+}
+a.big-button:hover, .as-link.big-button:hover { background: #608090; }
+a.big-button:active, .as-link.big-button:active { box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1); }
+a.big-button.red, .as-link.big-button.red { border-color: #ddacac; background: #a65; }
+a.big-button.red:hover, .as-link.big-button.red:hover { background: #b76; }
+a.big-button.gray, .as-link.big-button.gray { border-color: #f4f4f4; color: #ffffff; background: #565656; }
+a.big-button.gray:hover, .as-link.big-button.gray:hover { background: #676767; }
+a.big-button.blue, .as-link.big-button.blue { border-color: #ace; background: #678; }
+a.big-button.blue:hover, .as-link.big-button.blue:hover { background: #789; }
+a.big-button.green, .as-link.big-button.green { border-color: #ddeed0; background: #696; }
+a.big-button.green:hover, .as-link.big-button.green:hover { background: #797; }
+
+
+/* ==========================================================================
+   5.  Post Specific Styles
+   ========================================================================== */
+
+
+
+section.post {
+  max-width: 800px; /* Specific width for blog posts */
+  margin: 0 auto;   /* Centers section.post within its parent */
+  text-align: left;
+  border-top: 0;
+  padding: 0; /* Adjust or remove if you want padding here */
+}
+/* Ensure the padding for direct children of section.post is also reasonable */
+section.post > * {
+  padding: 0 20px; /* Reduced padding for actual text content within a post */
+}
+section.post ul ul, section.post ul ol, section.post ol ul, section.post ol ol {
+  margin-left: 20px;
+  padding: 0;
+}
+section.post h1 { /* Overrides global h1 for posts */
+  text-align: left;
+  line-height: 1.5em;
+  margin-bottom: 60px;
+  font-family: "IM Fell Great Primer SC", Georgia, serif;
+}
+
+section.post h1 .date {
+  color: var(--post-date-color); /* Using variable */
+  font-size: 10px;
+}
+section.post iframe {
+  width: 100%;
+}
+section.post iframe, section.post img {
+  padding: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+section.post, section > p { /* This rule is problematic, p will inherit its own rule */
+  font-size: var(--main-page-fontsize); /* Redundant if p is already 14px */
+  line-height: 1.6em; /* Different from global p's line-height */
+  font-weight: 800;
+  max-width: 100%;
+}
+section.post em strong, section > p em strong {
+  background-color: var(--em-strong-bg); /* Using variable */
+  padding: 0 2px;
+}
+
+
+/* --- NEW STYLES FOR YOUR MAIN PAGE INTRO SECTION --- */
+
+/* --- NEW STYLES FOR YOUR MAIN PAGE PROFILE SECTION --- */
+.main-profile-section {
+  display: flex; /* Makes it a flex container */
+  flex-wrap: wrap; /* Allows columns to wrap below each other on smaller screens */
+  align-items: flex-start; /* Aligns items to the top of the container */
+  justify-content: space-between; /* Pushes columns to ends, or adds space between */
+  gap: 50px; /* Space between the columns */
+  margin-bottom: 30px; /* Space below this entire section */
+  padding: 0 20px; /* Add internal padding for this section to match .content's side padding */
+}
+
+.profile-text-column {
+  flex: 2 1 60%; /* Allows this column to grow (2), shrink (1), and has a base width of 60% */
+  min-width: 300px; /* Prevents text from becoming too narrow before wrapping */
+  /* Remove any conflicting padding/margin from here */
+  /* ADD THESE TWO LINES */
+  text-align: justify;
+  text-justify: inter-word; /* Helps distribute spacing naturally between words */
+}
+
+.profile-image-column {
+  flex: 1 0 300px; /* Allows it to grow (1), not shrink below 300px, base width 300px */
+  max-width: 300px; /* Max width for the image column (adjust as needed) */
+  /* This setup should allow the text to be on the left and image on the right */
+  /* Remove any conflicting padding/margin from here */
+}
+.profile-image-column img {
+  display: block; /* Removes extra space below image */
+  width: 70%; /* Makes the image fill its container */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 10px; /* Optional styling */
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  /* Optional shadow */
+}
+
+/* Ensure that .intro-text and .research-interests-section within profile-text-column are also well-behaved */
+.intro-text, .research-interests-section {
+  margin-bottom: 20px; /* Add some space between intro-text and research-interests */
+}
+.intro-text:last-child, .research-interests-section:last-child {
+  margin-bottom: 0; /* No margin after the last one */
+}
+
+.intro-section {
+  display: flex; /* Use flexbox for image and text layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  align-items: flex-start; /* Align items to the top of the flex container */
+  gap: 30px; /* Space between image and text */
+  margin-bottom: 30px; /* Space below this intro section */
+}
+
+.intro-image {
+  flex: 0 0 auto; /* Don't grow, don't shrink, size based on content */
+  width: 250px; /* Adjust as needed - this is the max width of the image wrapper */
+  /* Remove any existing padding/margin from the image itself */
+}
+.intro-image img {
+  display: block; /* Remove extra space below image */
+  width: 100%; /* Make image fill its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Add some styling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.intro-text {
+  flex: 1 1 auto; /* Allow text to grow and shrink */
+  min-width: 300px; /* Ensure text doesn't get too narrow before wrapping */
+  /* Remove any excessive padding from here */
+  padding-left: 0; /* Ensure no unwanted padding */
+}
+
+/* Add this new rule for paragraphs within research-interests-section */
+.research-interests-section p {
+  font-size: var(--main-page-fontsize); /* Set your desired font size here, e.g., 16px */
+  line-height: 1.6em; /* Adjust line height for readability */
+  color: var(--paragraph-color); /* Ensure it uses your desired paragraph color */
+  font-weight: 800; /* Or whatever weight you want for this text */
+  font-style: normal; /* Ensure it's not italic if you want it normal */
+}
+
+/* You might also want to apply this to .intro-text if its paragraphs have the same issue */
+.intro-text p {
+  font-size: 14px; /* Example: Match the size for consistency */
+  line-height: 1.6em;
+  color: var(--paragraph-color);
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* ==========================================================================
+   6. Blog Body Overrides (for detailed typography within blog posts)
+   ========================================================================== */
+
+.blog-post { /* TARGETS YOUR BLOG POSTS */
+  max-width: 600px; /* Your desired narrower width for blog posts */
+  margin: 0 auto;   /* Centers the blog content within its parent */
+  text-align: left; /* Ensure text alignment for blog posts */
+
+  /* Add padding here to define inner spacing, if different from .content's global padding */
+  padding: 0 20px; /* Example: Add internal padding for blog post text */
+
+  /* Ensure no negative margins here */
+}
+
+
+.blogbody {
+  text-align: justify;
+  text-justify: inter-word; /* Helps the browser distribute spacing between words */
+}
+
+.blogbody li, p {
+  color: var(--paragraph-color); /* Inherit color from paragraph variable */
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+
+.blogbody strong {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-size: 17px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  line-height: 25px;
+  color: var(--highlight-color);
+  text-shadow: var(--strong-shadow);
+}
+
+
+
+/* Blog Post Headings (IM Fell Great Primer, italic, highlight color) */
+.blogbody h1,
+.blogbody h2,
+.blogbody h3,
+.blogbody h4,
+.blogbody h5,
+.blogbody h6 {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  /* font-size: 18px !important; */
+  /*font-variant: small-caps !important;*/
+  /*letter-spacing: 0.15em !important;*/
+  color: var(--highlight-color) !important;
+  margin-bottom: 5px !important;
+  border: none !important;
+  font-style: normal !important;
+  font-weight: 600;
+  /*font-style: italic; */
+  color: var(--highlight-color);
+  /*letter-spacing: -0.05em;*/
+}
+.blogbody h1 { font-size: 24px; line-height: 35px; }
+.blogbody h2 { font-size: 22px; line-height: 35px; }
+.blogbody h3 { font-size: 20px;  line-height: 20px; }
+
+.blogbody b { color: var(--highlight-color); }
+
+
+.blogbody li .highlight, .blogbody > p li .highlight {
+  padding: 0 10px;
+}
+.blogbody li p, .blogbody > p li p {
+  margin-bottom: 5px;
+}
+
+.blogbody p {
+  hyphens: auto;
+  text-wrap: pretty; /* Prevents single words from sitting alone on the last line */
+}
+
+
+.intro-caps {
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 1em;
+}
+
+.blogbody blockquote {
+  -webkit-transition: all, 0.3s;
+  -moz-transition: all, 0.3s;
+  -ms-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  transition: all, 0.3s;
+
+  /* --- Boxed Look & Theming --- */
+  background: var(--blockquote-background);
+  border: 0px solid var(--block-border);
+  border-radius: 3px;
+  padding: 20px 30px;
+  margin: 2em auto;
+  max-width: 75%;
+  display: block;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+
+  font-style: italic; /* Keep this here to ensure it's italic, even if default is not */
+  /* --- Existing Position/Overflow for the triangle pseudo-elements --- */
+  position: relative;
+  overflow: hidden;
+}
+
+.blogbody blockquote {
+  border-left: 2px solid var(--highlight-color);
+  background-color: rgba(184, 106, 80, 0.05); /* Very subtle tint of your link color */
+  padding: 1rem 1.5rem;
+  font-variant-numeric: oldstyle-nums; /* Makes numbers look "hand-written" */
+}
+
+
+
+.blogbody blockquote p {
+  color: var(--blockquote-text);
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.blogbody::after {
+  content: "❦"; /* Or "Q.E.D." */
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--highlight-color);
+  margin-top: 2rem;
+  opacity: 0.5;
+}
+
+
+.blogbody blockquote strong {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-weight: 700; /* Ensure it's bold if you want it */
+  color: var(--highlight-color); /* You can use your highlight color or a new one */
+  /* Add any other styles you want for strong text within blockquotes here */
+  /* For example, if you wanted a slight background: */
+  /* background-color: rgba(255, 255, 0, 0.1); */
+  /* padding: 0 2px; */
+  /* border-radius: 3px; */
+}
+
+
+
+/* Compact Bullet Lists inside Blockquotes */
+.blogbody blockquote ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blogbody blockquote ul li {
+  margin-bottom: 0.2rem; /* Tighter space between individual bullets */
+  line-height: 1.4;      /* Tighter line-height for multi-line text */
+}
+
+/* Kills the massive spacing caused by Markdown injecting <p> tags into lists */
+.blogbody blockquote ul li p {
+  margin-bottom: 0;
+  display: inline; /* Keeps the text perfectly inline with your new custom bullet marks */
+}
+
+
+
+.bq-title {
+  color: var(--highlight-color);
+  font-weight: 700;
+  font-size: 15;
+  font-family: "IM Fell Great Primer";
+  font-variant-caps: small-caps; /* For small caps effect */
+}
+
+
+/* 1. Initialize the counter at the top of the blog */
+.blogbody {
+  counter-reset: section-h2;
+}
+
+/* 2. When we hit an H2, increment it and reset the H3 counter beneath it */
+.blogbody h2 {
+  counter-increment: section-h2;
+  counter-reset: section-h3;
+}
+
+/* 3. Prepend the number to the H2 */
+.blogbody h2::before {
+  content: counter(section-h2) ". ";
+  color: var(--highlight-color); /* Matches your theme's accent */
+  font-family: "IM Fell Great Primer SC", serif; /* Uses your small-caps */
+  margin-right: 0.5rem;
+}
+
+/* 4. When we hit an H3, increment it */
+.blogbody h3 {
+  counter-increment: section-h3;
+  counter-reset: section-h4;
+}
+
+/* 5. Prepend the compound number (e.g., 1.2) to the H3 */
+.blogbody h3::before {
+  content: counter(section-h2) "." counter(section-h3) " ";
+  color: var(--highlight-color);
+  font-size: 0.9em;
+  margin-right: 0.5rem;
+}
+
+/* 6. When we hit an H4, increment it */
+.blogbody h4 {
+  counter-increment: section-h4;
+}
+
+/* 7. Prepend the compound number (e.g., 1.2.1) to the H4 */
+.blogbody h4::before {
+  content: counter(section-h2) "." counter(section-h3) "." counter(section-h4) " ";
+  color: var(--highlight-color);
+  font-size: 0.8em; /* Slightly smaller than H3 prefix */
+  margin-right: 0.5rem;
+}
+
+
+
+/* Custom Academic Bullets for Unordered Lists */
+.blogbody ul {
+  list-style-type: none; /* Removes the default black dots */
+  padding-left: 0;       /* Resets default browser indent */
+}
+
+.blogbody ul li {
+  position: relative;
+  padding-left: 1.5rem;  /* Creates space for the custom bullet */
+  margin-bottom: 0.5rem;
+}
+
+/* The custom bullet symbol */
+.blogbody ul li::before {
+  content: "⬩"; /* 🪶 Swap this out for your chosen symbol */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--highlight-color); 
+  font-family: "IM Fell Great Primer", serif; 
+  font-size: 1.1em;
+  line-height: inherit;
+}
+
+/* For nested lists, use a simpler symbol so it doesn't get cluttered */
+.blogbody ul ul li::before {
+  content: "—"; /* Em dash for sub-bullets */
+  opacity: 0.7;
+}
+
+
+/* ==========================================================================
+   7. Specific Component Styles
+   ========================================================================== */
+
+.myhighlight {
+  color: var(--highlight-color);
+  font-weight: 700;
+  font-size: var(--main-page-fontsize);
+  font-family: "IM Fell Great Primer";
+}
+
+/*.subheading {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-weight: 800;
+  font-optical-sizing: auto;
+  font-size: var(--main-page-subheading-fontsize);
+  color: var(--highlight-color)
+}*/
+
+
+/* 🏛️ Main Section Heading (e.g., Selected Publications) */
+.subheading {
+  font-family: "Futura", sans-serif !important; /* Modern sans-serif cuts through the serif body beautifully */
+  font-weight: 400 !important;
+  font-variant: small-caps !important;
+  text-transform: lowercase !important;
+  letter-spacing: 0.16em !important;
+  font-size: 20px !important; /* Shrunk down for elegance */
+  color: var(--highlight-color) !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.5rem !important;
+  display: block;
+  border-bottom: 1px solid var(--nav-border-color);
+  padding-bottom: 8px;
+}
+
+/*.subsubheading {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  text-transform: uppercase;
+  font-size: 18;
+  color: var(--heading-color);
+}*/
+
+/* 🏛️ Subsection (e.g., Conference Papers vs Workshops) */
+.subsubheading {
+  font-family: "IM Fell Great Primer", Georgia, serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  letter-spacing: -0.02em !important;
+  color: var(--heading-color) !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  display: block;
+}
+
+.papertitle {
+  color: var(--papertitle-color);
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-optical-sizing: auto;
+  font-size: var(--main-page-fontsize);
+  font-weight: 800;
+}
+.conference {
+  color: var(--conference-color);
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-size: var(--main-page-fontsize);
+}
+
+
+.blogname {
+  color: var(--highlight-color);
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-weight: 800;
+  font-size: 24px;
+  font-style: italic;
+}
+
+
+.blogtitle {
+  color: var(--blogtitle-color);
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-weight: 800;
+  font-size: 30;
+  font-style:italic;
+  line-height: 1.5em;
+  margin-bottom: 60px;
+  color: var(--highlight-color);
+  /*letter-spacing: -0.05em !important;*/
+  
+}
+
+
+
+
+/* ==========================================================================
+   8. Navigation Bar (Refined based on previous discussions)
+   ========================================================================== */
+
+.navigation {
+  width: 100%;
+  border-bottom: 1px solid var(--nav-border-color);
+  text-align: right;
+  position: relative;
+  display: flex;
+  justify-content: flex-end; /* Align items to the right by default */
+  align-items: flex-end; /* Align items to the bottom */
+/*  padding: 10px 0;*/
+  margin: 0;
+}
+
+.navigation .logo { /* Parent of the logo link */
+    /* Flatting SCSS-like nesting */
+}
+
+
+.navigation .logo a { 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  
+  /* --- Minimal Aesthetic --- */
+    font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 14px; /* Slightly smaller than 20px to sit perfectly inline with the nav menu */
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  
+  /* --- Standard Link Properties --- */
+  padding: 18px 0; /* Matches the padding of your other nav links for vertical alignment */
+  color: var(--logo-color);
+  text-decoration: none;
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.navigation .logo a:hover {
+  color: var(--highlight-color);
+  opacity: 1;
+}
+
+
+.navigation-item { /* Style for each navigation link */
+  padding: 0px;
+}
+.navigation-item a { /* Style for the links themselves */
+  text-decoration: none;
+  color: black; /* Consider variable: var(--nav-text-color) */
+}
+
+
+
+/* Standard Nav Links */
+.link {
+  display: inline-block;
+  padding: 10px 0px;
+  margin: 2px 25px;
+  position: relative;
+  text-decoration: none !important; /* Forces no underline by default */
+  color: var(--nav-text-color) !important;
+  font-weight: bold; /* Preserving your current bold style */
+  font-size: 20px;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  transition: color 0.2s ease; /* Smooth illumination */
+  /* ADD THIS LINE: Subtle tracking for an airy, academic feel */
+  letter-spacing: 0.06rem;
+}
+
+/* Nav Link Hover Bar */
+.link .bar { /* Flatting SCSS-like nesting */
+  width: 100%;
+  display: inline-block;
+  border-bottom: 5px solid black; /* Consider variable: var(--link-bar-color) */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 300ms;
+}
+
+
+
+.link:hover {
+  text-decoration: none !important;
+  color: var(--highlight-color) !important;
+}
+
+.link .title {
+  font-weight: bold; 
+}
+
+
+
+/* Make the theme toggle float on the top-right at all times */
+#theme-toggle-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1000000 !important; /* Forces it to float above TOCs, math, and code blocks */
+  
+  /* Create a clean circular floating button */
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--nav-border-color) !important;
+  border-radius: 50% !important;
+  width: 42px !important;
+  height: 42px !important;
+  
+  /* Center the icon inside the circle */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  /* Reset margins and add a shadow for depth */
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+#theme-toggle-button:hover {
+  border-color: var(--highlight-color) !important;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+  color: var(--link-color);
+}
+
+
+/* Theme Toggle Button */
+/*#theme-toggle-button {
+  background: none;
+  border: none;
+  color: var(--nav-text-color);
+  font-size: 1.2em;
+  padding: 10px 0px;
+  margin: 10px 0px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}*/
+
+/*#theme-toggle-button:hover {
+  color: var(--link-color);
+}*/
+
+
+/* Visually Hidden for Accessibility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   9. Icon Library Overrides (Font Awesome, Fork Awesome, Academicons)
+   ========================================================================== */
+
+/* Font Awesome (General) */
+.font-awesome-icons i {
+  font-variant: normal;
+}
+/* Font Awesome LinkedIn Icon (Brands) */
+.font-awesome-icons i.fa-linkedin {
+  font-family: "Font Awesome 6 Brands";
+  font-size: 20px;
+  color: var(--text-color);
+  font-style: normal;
+  font-weight: 400;
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Font Awesome Bluesky Icon (Brands) */
+.font-awesome-icons i.fa-brands.fa-bluesky {
+  font-family: "Font Awesome 6 Brands";
+  font-size: 20px;
+  color: var(--text-color);
+  font-style: normal;
+  font-weight: 400;
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Font Awesome Sun/Moon Toggle Icon */
+#theme-toggle-button #theme-toggle-icon {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.2em;
+    color: var(--nav-text-color);
+}
+
+/* Fork Awesome Icons */
+.fork-awesome-icons i.fa {
+  font-family: "Fork Awesome";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  color: var(--text-color);
+}
+
+/* Academicons */
+.ai {
+    color: var(--text-color);
+}
+
+/* ==========================================================================
+   10. Utility Classes & Misc.
+   ========================================================================== */
+
+#go-back-home { margin: 40px 0 0; }
+#go-back-home:hover { background-image: none; }
+.capitalize { text-transform: capitalize; }
+.upcase { text-transform: uppercase; }
+.downcase { text-transform: lowercase; }
+.hide { display: none; }
+.a-r { text-align: right; }
+.a-c { text-align: center; }
+.small { font-size: 11px; }
+.pull-left { float: left; }
+.pull-right { float: right; }
+.muted { color: #8f8f8f; } /* Convert to variable */
+.colour-1 { color: #cc9944; } /* Convert to variables */
+.colour-2 { color: #925; }
+.colour-3 { color: #448844; }
+.text-big { font-size: 24px; line-height: 1em; }
+.highlight { margin: 0; padding: 0; } /* This is for a non-variable highlight class */
+
+/* ==========================================================================
+   11. Paging & Signoff
+   ========================================================================== */
+
+.signoff { margin-top: 30px; }
+.signoff img { width: 20px; }
+.paging a { opacity: 0.25; }
+.paging a:hover { opacity: 0.7; background: none; }
+.paging .left, .paging .right {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 60px;
+}
+.paging .left { margin-left: -340px; }
+.paging .right { margin-left: 320px; }
+
+
+/* ==========================================================================
+   12. Tooltip Styling (Footnotes)
+   ========================================================================== */
+
+.tooltip {
+  position: absolute;
+  background-color: var(--tooltip-background);
+  border: 1px solid var(--tooltip-border-color);
+  border-radius: 8px;
+  padding: 5px 5px;
+  line-height: 0;
+  max-width: 200px;
+  z-index: 1000;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(5px);
+  font-style: italic;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: var(--arrow-top, 100%);
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: var(--tooltip-border-color) transparent transparent transparent;
+}
+.tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*  FORCE ITALICS AND CORRECT TEXT UNITS HERE */
+.tooltip p {
+  color: var(--tooltip-text-color) !important;
+  font-size: 14px !important; /* Fixed missing 'px' and made readable */
+  font-style: italic !important; /* Overrides global normal paragraph styles */
+  margin: 0; /* Tightens up layout */
+  line-height: 1.4;
+}
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between; /* Puts previous on left, next on right */
+  align-items: center;
+  margin-top: 40px; /* Space above navigation */
+  padding: 15px 0;
+  border-top: 1px dotted var(--hr-color); /* A subtle separator */
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  color: var(--nav-text-color);
+}
+
+.post-navigation a {
+  text-decoration: none;
+  color: var(--link-color); /* Use your link color */
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1.1em;
+}
+
+.post-navigation a:hover {
+  background-color: rgba(var(--link-color-rgb, 184, 106, 80), 0.1); /* Subtle hover background */
+  color: var(--link-hover-color, #1d5884);
+}
+
+.post-navigation .left-arrow {
+  text-align: left;
+}
+
+.post-navigation .right-arrow {
+  text-align: right;
+}
+
+
+/* Styling for the nested series parts list */
+ul.posts .series-parts-list {
+  list-style-type: disc; /* Use bullets for parts */
+  margin-left: 30px; /* Indent the list */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0; /* Remove default padding */
+}
+
+ul.posts .series-parts-list li {
+  margin-bottom: 3px; /* Smaller margin between parts */
+  padding: 0;
+  color: var(--highlight-color); /* Inherit color */
+  font-weight: 800;
+}
+
+ul.posts .series-parts-list li a {
+  font-size: 17px; /* Slightly smaller font for parts */
+  color: var(--highlight-color);
+  text-decoration: none;
+  display: inline; /* Keep links inline within the list item */
+}
+
+ul.posts .series-parts-list li a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color, #1d5884);
+}
+
+/* ==========================================================================
+   13. Media Queries (Mobile Overrides)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Responsive widths for main content and blog posts */
+  #container, section.post {
+    max-width: 95%; /* Make content take more width on small screens */
+    margin: 10px auto; /* Center on mobile */
+  }
+
+  .content { /* Ensure .content's padding doesn't create excessive inner margins */
+    padding: 15px; /* Reduced overall padding for mobile */
+  }
+
+  .blog-post, section.post { /* Apply consistent mobile padding within these */
+      padding: 0 15px; /* Example: inner padding for mobile blog/main page section content */
+  }
+
+  /* Navigation mobile rules */
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 10px 0;
+    margin: 0;
+    padding-left: 15px; /* Adjust this value as needed for desired space */
+  }
+  .navigation .logo {
+    position: static;
+    margin-bottom: 20px;
+    width: 100%;
+    display: block;
+    padding: 0;
+  }
+  .navigation .logo a {
+    border-right: none;
+    padding: 10px 0;
+    display: block;
+    margin: 0;
+    width: auto;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-end; /* This aligns menu items to right on mobile */
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    margin: 10px 0 0 0;
+    width: 100%;
+  }
+
+  /* General Menu Container */
+.menu { /* This block was duplicated; keeping one here */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+
+  .menu a {
+    padding: 15px 0;
+    display: block;
+    text-align: left;
+    margin: 0;
+    border-top: 1px solid var(--block-border); /* Use variable for separator */
+    width: 100%;
+  }
+  .menu a:first-child {
+    border-top: none;
+  }
+
+  #theme-toggle-button {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .post-navigation {
+    flex-direction: column; /* Stack vertically */
+    align-items: stretch; /* Stretch links to full width */
+    gap: 10px; /* Space between links */
+  }
+  .post-navigation a {
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* --- Mobile Specific Styles for Intro Section --- */
+.main-profile-section {
+    flex-direction: column; /* Stack columns vertically on mobile */
+    align-items: center; /* Center content horizontally */
+    gap: 20px; /* Adjust vertical gap */
+    padding: 0 15px; /* Adjust section padding for mobile */
+  }
+  .profile-text-column, .profile-image-column {
+    flex: 0 0 auto; /* Remove flex growing/shrinking */
+    width: 100%; /* Take full width */
+    max-width: 300px; /* Limit image/text block width if they get too wide */
+    text-align: center; /* Center text column content */
+  }
+  .profile-text-column p, .profile-text-column .subheading {
+      text-align: center; /* Ensure text within column is centered */
+  }
+  .profile-image-column img {
+    width: 100%; /* Make image fill its column */
+    max-width: 200px; /* Example max width for image on small screens */
+    margin: 0 auto; /* Center the image */
+  }
+  /* Social icons might need explicit centering if they are not block elements */
+  .intro-text p {
+    display: flex; /* Make it a flex container */
+    justify-content: center; /* Center content horizontally */
+    flex-wrap: wrap; /* Allow icons to wrap if space is limited */
+  }
+  .intro-text p a, .intro-text p svg {
+    margin: 5px; /* Add some space between icons */
+  }
+
+
+}
+
+
+/* Custom style for the subtle "Last Updated" note */
+.tiny-note {
+    font-size: 0.7em; /* Makes the text small */
+    color: #888;     /* Sets the color to a light grey */
+    font-weight: normal; /* Ensures it's not bold */
+}
+
+.last-updated {
+  font-family: "Futura", "Helvetica Neue", sans-serif !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--post-date-color) !important;
+  font-weight: 500 !important;
+  opacity: 0.7;
+}
+
+
+/* Style the container */
+details {
+  margin-bottom: 0px;
+  padding: 2px;
+  transition: background-color 0.2s ease;
+}
+
+
+/* Optional: remove the border from the very last item in the list */
+details:last-of-type {
+  border-bottom: none;
+}
+
+
+/* Style the clickable header */
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none; /* Removes the default arrow in some browsers */
+}
+
+/* Set the master size on the parent */
+details, summary {
+  font-size: 16px;
+}
+
+/* Force children to adopt that size, overriding the 17px rule */
+details p, 
+details strong, 
+summary strong {
+  font-size: inherit !important;
+}
+
+/* 2. Add the custom triangle icon */
+summary::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 12px;
+  /* Using a background SVG for a sharp, clean triangle */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  /* Transition for the "reorienting" animation */
+  transition: transform 0.2s ease;
+}
+
+/* 3. Reorient (Rotate) the triangle when open */
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+
+
+.spoiler {
+  /* This creates the "darkened spot" look */
+  background-color: var(--text-color); 
+  color: var(--text-color);
+  
+  /* The "blur" makes it look like a physical smudge */
+  filter: blur(5px);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0 6px;
+  transition: all 0.4s ease;
+  display: inline-block;
+  user-select: none; /* Prevents accidental text selection when clicking */
+}
+
+.spoiler.revealed {
+  background-color: transparent;
+  color: var(--highlight-color); /* Reveals in your theme's highlight color */
+  filter: blur(0);
+  font-style: italic; /* Consistency with your footnote style */
+}
+
+/* Hover effect to hint that it's interactive */
+.spoiler:hover:not(.revealed) {
+  filter: blur(3px);
+  box-shadow: 0 0 8px var(--highlight-color);
+}
+
+
+/* --- HAND-DRAWN SKETCH FRAME --- */
+
+/* 1. The Container gets the borders, so they NEVER get filtered or inverted */
+.sketch-frame {
+  display: table; /* Shrinks the container to perfectly wrap the image */
+  margin: 3rem auto; /* Centers it horizontally */
+  
+  /* Your exact border and outline setup */
+  border: 2px solid var(--container-border);
+  outline: 1px solid var(--highlight-color);
+  outline-offset: 4px;
+}
+
+/* Replicate your light/dark mode border logic for the container */
+[data-theme="light"] .sketch-frame {
+  border: 1px solid var(--highlight-color); 
+}
+[data-theme="dark"] .sketch-frame {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--highlight-color);
+}
+
+/* 2. The Image inside handles ONLY the B&W scanner effect */
+.sketch-frame img {
+  display: block;
+  max-width: 100%;
+  border-radius: 0px; 
+  /* Strips yellow paper and blue ink */
+  filter: grayscale(1) contrast(1.8) brightness(1.1);
+}
+
+/* 3. Invert the sketch for dark mode (Leaves borders untouched!) */
+[data-theme="dark"] .sketch-frame img {
+  filter: grayscale(1) contrast(1.8) brightness(1.1) invert(0.9);
+}
+
+.theme-aware-img {
+  /*border: 2px solid var(--container-border);
+  outline: 1px solid var(--highlight-color);*/
+  outline-offset: 4px; /* Creates a gap between the two borders */
+  margin: 3rem auto;
+  border-radius: 0px; /* Optional: keeps the border aligned with your rounded crop */
+    /* The Frame */
+  border: 1px solid var(--nav-border-color);
+  padding: 15px; /* Thicker matte */
+  background-color: var(--blockquote-background); /* Subtle contrast against the page */
+
+}
+
+
+
+
+/* In light mode, the image stays as is */
+[data-theme="light"] .theme-aware-img {
+  filter: none;
+  /* --- Added Border Logic --- */
+  border: 1px solid var(--highlight-color); 
+  /* --------------------------- */
+}
+
+/* In dark mode, if the PNG is black, we invert it to white */
+[data-theme="dark"] .theme-aware-img {
+  filter: invert(0.9) hue-rotate(180deg);
+  /* Or, give it a subtle light background so the black lines stay visible */
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--highlight-color);
+}
+
+
+
+/* ==========================================================================
+   HAND-DRAWN THEME AWARE IMAGE (Standalone Class)
+   ========================================================================== */
+
+.theme-aware-hand-drawn {
+  /* 1. Exactly the same layout and borders as regular images */
+  display: block;
+  max-width: 100%;
+/*  border: 2px solid var(--container-border);
+  outline: 1px solid var(--highlight-color);*/
+  outline-offset: 4px;
+  margin: 3rem auto;
+  border-radius: 0px;
+  
+  /* 2. Base digital scanner effect (Default) */
+  filter: grayscale(1) contrast(1.8) brightness(1.1);
+
+  /* The Frame */
+  border: 1px solid var(--nav-border-color);
+  background-color: var(--blockquote-background); /* Subtle contrast against the page */
+
+  }
+
+/* Light Mode Override */
+[data-theme="light"] .theme-aware-hand-drawn {
+  /* Keeps the scanner effect (unlike regular images which set filter: none) */
+  filter: grayscale(1) contrast(1.8) brightness(1.1);
+  border: 1px solid var(--highlight-color); 
+}
+
+/* Dark Mode Override */
+[data-theme="dark"] .theme-aware-hand-drawn {
+  filter: grayscale(1) contrast(1.8) brightness(1.1) invert(0.9);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: black;
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Subtle rounding - good for plots and diagrams */
+.img-rounded {
+  border: 1px solid var(--container-border); /* Adds a nice frame */
+  overflow: hidden; /* Ensures the image doesn't "leak" past the corners */
+}
+
+
+
+.paper-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px; /* Spacing between papers */
+  gap: 25px;           /* Gap between image and text */
+}
+
+.paper-thumbnail {
+  flex: 0 0 240px;     /* Fixed width for the thumbnail column */
+}
+
+.paper-thumbnail img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Light border like your reading list */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle depth */
+}
+
+.paper-details {
+  flex: 1;             /* Text takes up the remaining space */
+}
+
+/* Optional: Stack vertically on mobile */
+@media (max-width: 600px) {
+  .paper-card {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .paper-thumbnail {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 200px; /* Larger preview on mobile */
+  }
+}
+
+
+/* Target the specific anchor and span MathJax uses for \eqref */
+.blogbody a .MathJax_ref,
+.blogbody a:has(.MathJax_ref) {
+    display: inline !important;    /* Force it out of inline-block */
+    line-height: inherit !important; /* Force it to match surrounding text */
+    vertical-align: baseline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Fix for the CommonHTML output seen in your HTML file */
+.mjx-chtml.MathJax_CHTML .MathJax_ref {
+    vertical-align: 0;
+}
+
+
+.read-more-hint {
+  margin-top: 1px;
+  font-size: 9px;
+  font-style: italic;
+  text-align: right;
+  opacity: 0.8;
+}
+
+
+/* Footnotes Section at the bottom of the page */
+.footnotes {
+    font-size: 15px; /* Adjust this value to your preferred smaller size */
+}
+
+
+/* Ensure the list items and paragraphs within the footnotes inherit the size */
+.footnotes ol li, 
+.footnotes ol li p {
+    font-size: inherit !important;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+
+ /* Controls styling */
+  .blog-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .control-btn {
+    padding: 6px 14px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--nav-border-color);
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: "Futura", "Helvetica Neue", sans-serif;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    letter-spacing: 0.1em;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .control-btn.active {
+    color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    background-color: rgba(184, 106, 80, 0.05); 
+  }
+  
+  .control-btn:hover:not(.active) {
+    color: var(--highlight-color);
+    border-color: var(--highlight-color);
+  }
+
+  /* Custom dropdown styling to remove default browser bulk */
+  select.control-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 25px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+  select.control-btn:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+  }
+
+  /* Card Grid styling */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  /* Individual Card styling */
+  .post-card {
+    border: 1px solid var(--nav-border-color);
+    background-color: var(--container-background);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .post-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--highlight-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .card-title {
+    font-family: "IM Fell Great Primer", serif;
+    color: var(--heading-color);
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+  }
+  .card-meta {
+    font-family: "Futura", "Helvetica Neue", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.7em;
+    color: var(--post-date-color);
+    margin-bottom: 15px;
+  }
+  .card-excerpt {
+    font-family: "IM Fell Great Primer", serif;
+    font-size: 0.95em;
+    color: var(--paragraph-color);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+
+/* ==========================================================================
+   PETITE & STICKY SIDEBAR TOC
+   ========================================================================== */
+
+.sidebar-toc {
+  box-sizing: border-box; /* Ensures padding doesn't push border into text */
+  position: -webkit-sticky;
+  position: sticky;       /* Stays within the .blog-post container */
+  top: 100px;             /* Distance from top of screen when sticking */
+  float: left;            /* Keeps it in the left flow of the container */
+  
+  /* Pushes it into the margin relative to the 600px blog column */
+  margin-left: -260px;    
+  width: 210px;
+  padding-right: 20px;
+  /* Petite & Faded styling */
+  text-align: left;      /* Hugs the divider line for clean alignment */
+  font-size: 0.8rem;      /* Smaller, less distracting font */
+  opacity: 0.95;           /* Faded out by default */
+  border-right: 1px solid var(--nav-border-color);
+  transition: opacity 0.3s ease;
+  z-index: 10;
+
+  /* --- NEW SCROLLING LOGIC --- */
+  max-height: calc(100vh - 120px); /* Prevents the TOC from growing taller than the screen */
+  overflow-y: auto;                /* Enables vertical scrolling */
+}
+
+/* --- MINIMALIST WEBKIT SCROLLBAR (Chrome, Safari, Edge) --- */
+.sidebar-toc::-webkit-scrollbar {
+  width: 1px; /* Incredibly thin so it doesn't distract */
+}
+
+.sidebar-toc::-webkit-scrollbar-track {
+  background: transparent; /* Invisible track */
+}
+
+.sidebar-toc::-webkit-scrollbar-thumb {
+  background-color: var(--nav-border-color); /* Matches the vertical line right next to it */
+}
+
+.sidebar-toc::-webkit-scrollbar-thumb:hover {
+  background-color: var(--highlight-color); /* Illuminates when the user interacts with it */
+}
+
+/* Hover effect: Full visibility when needed */
+.sidebar-toc:hover {
+  opacity: 1;
+}
+
+/* Clickable Title (The Return-to-Top link) */
+.toc-title-link {
+  display: block;
+  text-decoration: none !important;
+  color: var(--highlight-color) !important;
+  font-family: "IM Fell Great Primer", serif;
+  font-weight: 800;
+  font-size: 0.75rem !important;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--nav-border-color);
+}
+
+
+.sidebar-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hierarchy: Indent Reason 1, 2, etc. (H3s) */
+.sidebar-toc ul ul {
+  padding-left: -5px;
+  margin: 5px -10px;
+}
+
+
+/* Optional: Add deeper indentation for third-level headers (H4s) */
+.sidebar-toc ul ul ul {
+display: none !important;
+}
+
+.sidebar-toc li {
+  margin-bottom: 8px;
+}
+
+.sidebar-toc a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sidebar-toc a:hover {
+  color: var(--highlight-color);
+}
+
+/* Responsive: Hide on narrow screens to avoid overlapping text */
+/*@media screen and (max-width: 1000px) {
+  .sidebar-toc {
+    display: none;
+  }
+}*/
+
+
+/* --- TOC TREE LINES --- */
+
+/* Reset default list padding and set indentation for branches */
+.sidebar-toc ul {
+  list-style: none;
+  padding-left: 12px; 
+}
+
+/* Keep top-level items completely flush to the left */
+.sidebar-toc > ul {
+  padding-left: 0; 
+}
+
+/* Create relative positioning for the lines to anchor to */
+.sidebar-toc li {
+  position: relative;
+  padding-left: 15px; /* Room for the horizontal branch */
+  margin-bottom: 4px;
+}
+
+/* Remove the padding from top-level items so they don't shift */
+.sidebar-toc > ul > li {
+  padding-left: 0;
+}
+
+/* Vertical line (The Trunk) */
+.sidebar-toc ul ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: var(--nav-border-color);
+  opacity: 0.5; /* Slightly faded so it doesn't overpower the text */
+}
+
+/* Horizontal line (The Branch) */
+.sidebar-toc ul ul li::after {
+  content: "";
+  position: absolute;
+  top: 9px; /* Aligns visually with the middle of your 0.7rem font */
+  left: 0;
+  width: 10px;
+  height: 1px;
+  background-color: var(--nav-border-color);
+  opacity: 0.5;
+}
+
+/* Prevent the vertical line from hanging below the final item */
+.sidebar-toc ul ul li:last-child::before {
+  bottom: auto;
+  height: 9px; /* Must perfectly match the 'top' value of the horizontal line */
+}
+
+/* Tier 1: Moderate Zoom (Viewport between 1050px and 1249px) */
+@media screen and (max-width: 1249px) {
+  .sidebar-toc {
+    font-size: 0.7rem;    /* Shrink font from 0.7rem */
+    width: 180px;         /* Narrow the container from 210px */
+    margin-left: -210px;  /* Pull it less far left from -260px */
+    opacity: 1.0;         /* Fade it slightly more to stay unobtrusive */
+  }
+}
+
+/* Tier 2: High Zoom (Viewport between 900px and 1049px) */
+@media screen and (max-width: 1049px) {
+  .sidebar-toc {
+    font-size: 0.65rem;    /* Tiny font for extreme narrow gutters */
+    width: 135px; 
+    margin-left: -145px;
+    padding-right: 5px;   /* Reduce padding to save space */
+  }
+  
+  .toc-title-link {
+    font-size: 0.6rem !important; /* Shrink the TOC header specifically */
+  }
+}
+
+/* Tier 3: Final Hide (Viewport below 900px) */
+@media screen and (max-width: 900px) {
+  .sidebar-toc {
+    display: none !important; /* Finally hide when overlap is inevitable */
+  }
+}
+
+#disqus_thread {
+  max-width: 600px;
+  margin: 50px auto 20px;
+  padding: 30px 0 0 0; /* Only top padding */
+  
+  border-top: 1px solid var(--nav-border-color); /* Single crisp line */
+}
+
+#disqus_thread {
+  max-width: 600px;
+  margin: 40px auto; /* 40px top/bottom pushes it away from the post */
+  padding: 30px;     /* Internal breathing room */
+  
+  background-color: var(--blockquote-background); /* Uses your theme's dark/light palette */
+  border: 2px solid var(--nav-border-color);
+  border-radius: 1px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* Blog landing page */ 
+
+/* Container for the scholarly Table of Contents */
+.academic-toc {
+  max-width: 650px;
+  margin: 0 auto;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+}
+
+.toc-category-block {
+  margin-bottom: 3rem;
+}
+
+/* Category Header: Small caps, spaced out, petite */
+.toc-category-title {
+  font-size: 14px !important;
+  font-family: "Futura", "Helvetica Neue", sans-serif !important; /* A sans-serif contrast works beautifully for headers in academic texts */
+  font-variant: small-caps !important;
+  text-transform: lowercase !important;
+  letter-spacing: 0.15em !important;
+  font-weight: 600 !important;
+  color: var(--highlight-color) !important;
+  margin-bottom: 5px !important;
+  border: none !important;
+  font-style: normal !important;
+}
+
+/* Category Description */
+.toc-category-description {
+  font-size: 14px !important;
+  font-style: italic !important;
+  line-height: 1.4 !important;
+  color: var(--text-color) !important;
+  opacity: 0.7;
+  margin: 0 0 15px 0 !important;
+}
+
+.toc-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.toc-item {
+  margin-bottom: 6px !important;
+  padding: 0 !important;
+}
+
+.toc-link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  width: 100% !important;
+  text-decoration: none !important;
+  color: var(--text-color) !important;
+}
+
+/* Title is shrunk down, removing the aggressive italic italics */
+.toc-title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  flex-shrink: 0;
+}
+
+
+
+/* 🕯️ Remove the underline and gently illuminate the title on hover */
+.toc-link:hover .toc-title {
+  color: var(--highlight-color) !important;
+  text-decoration: none !important; /* Removes the underline */
+  transition: color 0.2s ease; /* Makes the illumination feel "gentle" */
+}
+
+
+/* This creates the classic book dot-leader connecting title to date */
+.toc-filler {
+  flex-grow: 1;
+  border-bottom: 1px dotted var(--nav-border-color);
+  opacity: 0.3;
+  margin: 0 10px;
+}
+
+.toc-date {
+  font-size: 8px !important;
+  font-family: "Futura", sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--post-date-color) !important;
+  flex-shrink: 0;
+}
+
+/* Abstract if you decide to add it */
+.toc-abstract {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  opacity: 0.6;
+  margin: 2px 0 10px 0 !important;
+  padding-left: 15px;
+}
+
+
+/* --- DISPLAY EQUATION SCALING (Safe Method) --- */
+
+/* Targets the specific CommonHTML block display container */
+.mjx-chtml.MJXc-display {
+  transform: scale(1.30); /* Scales the equation to 115% */
+  transform-origin: center center; /* Keeps it perfectly centered */
+  
+  /* Because the equation is visually larger, we must add margin 
+     so it doesn't overlap the paragraphs above and below it */
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+}
+
+/* Fallbacks just in case you ever switch renderers */
+.MathJax_Display,
+.MathJax_SVG_Display {
+  transform: scale(1.30);
+  transform-origin: center center;
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+}
+
+
+/* ==========================================================================
+   14. Visual Bookshelf & Library Grids
+   ========================================================================== */
+
+.library-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px; /* Matches the padding of your blog posts */
+}
+
+
+.library-intro {
+  font-style: italic;
+  margin-bottom: 40px;
+  opacity: 0.8;
+  border-bottom: 1px dotted var(--nav-border-color);
+  padding-bottom: 20px;
+}
+
+.book-topic-block {
+  margin-bottom: 50px;
+}
+
+/* Responsive Grid: automatically fits as many covers as possible */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 30px 20px;
+  margin-top: 20px;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* Enforces a standard 2:3 book cover aspect ratio */
+.cover-wrapper {
+  position: relative; 
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  /* overflow: hidden; REMOVED so the text cloud can escape the box */
+  border-radius: 2px;
+  border: 1px solid var(--nav-border-color);
+  background-color: var(--blockquote-background);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cover-wrapper:hover {
+  transform: translateY(-5px);
+  border-color: var(--highlight-color);
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .cover-wrapper {
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+  filter: brightness(0.9);
+}
+
+.book-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  filter: contrast(1.05); 
+  border-radius: 2px; /* ADDED to keep the image corners round */
+}
+/* --- Top Metadata Bar (Hearts & Blurb Icon) --- */
+.book-top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  height: 22px;
+}
+
+.book-hearts {
+  color: var(--highlight-color);
+  font-size: 11px; /* Small and delicate */
+  letter-spacing: 1px;
+}
+
+/* The clickable symbol */
+.blurb-toggle-btn {
+  position: relative;
+  margin-left: auto; /* Pushes the icon to the far right */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--post-date-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.blurb-toggle-btn:hover,
+.blurb-toggle-btn.active {
+  color: var(--highlight-color);
+  outline: none;
+}
+
+.blurb-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* --- THE NEW CLICKABLE TEXT CLOUD --- */
+.book-blurb-cloud {
+  position: absolute;
+  bottom: 150%; /* Floats directly above the small icon */
+  right: -5px;  /* Aligns the right edge of the cloud near the icon */
+  width: 220px; 
+  background-color: var(--tooltip-background);
+  border: 1px solid var(--tooltip-border-color);
+  padding: 12px 18px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px var(--tooltip-shadow);
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 100;
+  cursor: default; /* Ensures clicking the text itself doesn't close the bubble */
+}
+
+/* The downward triangle pointing to the icon */
+.book-blurb-cloud::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 8px; /* Aligns the triangle exactly with the star icon */
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--tooltip-border-color) transparent transparent transparent;
+}
+
+.book-blurb-cloud p {
+  font-family: "IM Fell Great Primer", serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--tooltip-text-color);
+  text-align: left;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Reveal the cloud when the button is clicked (gets the .active class) */
+.blurb-toggle-btn.active .book-blurb-cloud {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+/* --- Book Typography --- */
+.book-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.book-title {
+  font-family: "IM Fell Great Primer", serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: var(--highlight-color) !important;
+  margin: 0 0 2px 0 !important;
+  border: none !important;
+}
+
+.book-author {
+  font-family: "IM Fell Great Primer", serif;
+  font-size: 13px;
+  font-style: italic;
+  text-transform: none; 
+  letter-spacing: 0;    
+  color: var(--post-date-color); 
+  margin-top: 0;
+  opacity: 0.85;
+}
+
+/* Mobile Tweak: slightly larger minimum width for covers on phones */
+/* Mobile Tweak: slightly larger minimum width for covers on phones */
+@media screen and (max-width: 600px) {
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px 15px;
+  }
+
+  /* --- Mobile Tooltip Smart Alignment --- */
+  
+  /* 1. Compress the width slightly to safely fit inside narrow phone screens */
+  .book-blurb-cloud {
+    width: 180px !important; 
+  }
+  
+  /* 2. Left Column Books: Anchor to the left, expand safely to the right */
+  .book-card:nth-child(odd) .book-blurb-cloud {
+    right: auto;
+    left: -15px; 
+  }
+  /* Point the little triangle back to the icon */
+  .book-card:nth-child(odd) .book-blurb-cloud::after {
+    right: auto;
+    left: 17px; 
+  }
+  
+  /* 3. Right Column Books: Anchor to the right, expand safely to the left */
+  .book-card:nth-child(even) .book-blurb-cloud {
+    right: -15px;
+    left: auto;
+  }
+  /* Point the little triangle back to the icon */
+  .book-card:nth-child(even) .book-blurb-cloud::after {
+    right: 17px;
+    left: auto;
+  }
+}
+
+/* ==========================================================================
+   15. Marginalia & Sidenotes
+   ========================================================================== */
+
+.marginnote {
+  float: right;
+  clear: right;
+  /* Pushes the note out of the 600px center column and into the right gutter */
+  margin-right: -280px; 
+  width: 220px;         /* Keeps the text line-length short and readable */
+  margin-top: 0.3rem;   /* Aligns it visually with the text it references */
+  margin-bottom: 1rem;
+  
+  /* Vintage Typography Styling */
+  font-family: "IM Fell Great Primer", serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--post-date-color); /* Uses your muted, oxidized ink color */
+  text-align: left;
+  opacity: 0.9;
+}
+
+/* Optional: Adds a tiny vintage dot leader to connect it to the main text */
+.marginnote::before {
+  content: "⬩ ";
+  color: var(--highlight-color);
+  font-size: 0.9em;
+}
+
+/* Forces paragraphs generated by Markdown to obey the marginnote styling */
+.marginnote p {
+  font-size: inherit !important;
+  color: inherit !important;
+  line-height: inherit;
+  font-weight: 400 !important; /* Overrides the heavy 800-weight blogbody paragraphs */
+  margin: 0; /* Prevents awkward vertical spacing */
+}
+
+/* --- Mobile Fallback --- */
+/* When the screen is smaller than 1100px, there isn't enough room for a right column.
+   This pulls the marginalia back inline, styling it as an indented block. */
+@media screen and (max-width: 1100px) {
+  .marginnote {
+    float: none;
+    display: block;
+    margin: 1.5rem 0 1.5rem 1.5rem;
+    width: 85%;
+    border-left: 1px solid var(--nav-border-color);
+    padding-left: 15px;
+  }
+}
+
+
+
+
+/* Option 1: Minimal & Clean */
+.author-title {
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--text-color);
+  text-align: center;
+  margin: 60px auto 50px;
+  opacity: 0.9;
+}
+
+
+
+/* ==========================================================================
+   17. Blog Row-by-Row Index
+   ========================================================================== */
+
+.blog-index-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 800px; /* Constrains the list so it doesn't stretch too far */
+}
+
+.blog-index-item {
+  display: flex;
+  align-items: baseline; /* Aligns the text bottoms across the row */
+  padding: 15px 0;
+  border-bottom: 1px dotted var(--nav-border-color);
+}
+
+/* Removes the dotted line from the very last post */
+.blog-index-item:last-child {
+  border-bottom: none;
+}
+
+.index-date {
+  flex: 0 0 110px; /* Keeps the date column a fixed width */
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--post-date-color);
+  font-weight: 400;
+}
+
+.index-title {
+  font-family: "IM Fell Great Primer", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--heading-color);
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.2s ease;
+}
+
+.index-title:hover {
+  color: var(--link-hover-color);
+}
+
+.index-tags {
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 10px;
+  color: var(--post-date-color);
+  opacity: 0.5; /* Keeps them quiet and out of the way */
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  margin-left: auto; /* This automatically pushes the tags to the far right edge */
+  text-align: right;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .blog-index-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+  
+  .index-date {
+    flex: none;
+    margin-bottom: 8px;
+  }
+  
+  .index-tags {
+    margin-left: 0;
+    margin-top: 8px;
+    text-align: left;
+  }
+}
+
+
+/* --- Automated Sidenote Numbering --- */
+
+/* 1. Reset the counter at the start of the text block */
+.blogbody {
+  counter-reset: sidenote-counter;
+}
+
+/* 2. The inline marker that triggers the count */
+.sidenote-mark {
+  counter-increment: sidenote-counter;
+  display: inline;
+}
+
+/* 3. The superscript number that appears in the main text */
+.sidenote-mark::after {
+  content: counter(sidenote-counter);
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+  color: var(--highlight-color);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* 4. The matching number that appears inside the margin note */
+.marginnote.numbered::before {
+  content: counter(sidenote-counter) ". ";
+  color: var(--highlight-color);
+  font-weight: 700;
+  font-family: "IM Fell Great Primer", serif;
+}
