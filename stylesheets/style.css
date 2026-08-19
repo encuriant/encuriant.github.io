@@ -2065,67 +2065,95 @@ display: none !important;
   }
 }
 
-/* Tier 3: Final Hide (Viewport below 900px) */
-/* Tier 3: Mobile Inline Accordion (Viewport below 900px) */
+/* Tier 3: Mobile Floating Bottom Pill (Viewport below 900px) */
 @media screen and (max-width: 900px) {
+  /* 1. The Floating Pill Container */
   .sidebar-toc {
-    display: block !important; 
+    display: flex !important; 
+    align-items: center;
+    justify-content: center;
     
-    /* Restores the floating behavior */
-    position: -webkit-sticky;
-    position: sticky; 
-    top: 15px; /* Adds a nice 15px gap from the top of the screen */
-    z-index: 1000; /* Forces the menu to float above your images and text */
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    top: auto !important; /* Overrides the previous sticky top */
+    z-index: 1000000 !important;
     
-    width: 100%;
-    margin: 0 0 30px 0;
-    padding: 15px;
-    background-color: var(--background-color); /* Matches the page exactly */
-    border: 1px solid var(--nav-border-color);
-    border-radius: 3px;
-    opacity: 1;
+    width: auto !important;
+    height: 42px !important; /* Perfectly matches your other buttons */
+    margin: 0 !important;
+    padding: 0 15px !important;
     
-    /* Adds a subtle drop shadow so it visually lifts off the page while scrolling */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    overflow: visible !important;
+    
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--nav-border-color) !important;
+    border-radius: 25px !important; /* Gives it the sleek rounded shape */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
   }
   
+  /* 2. The Pop-Up Menu (Floats above the pill) */
   .sidebar-toc ul {
-    display: none; /* Hides the list by default */
-    margin-top: 15px;
+    display: none; 
+    position: absolute;
+    bottom: 55px; /* Pushes the menu right above the pill */
+    left: 0;
+    width: 220px;
+    
+    background-color: var(--background-color);
+    border: 1px solid var(--nav-border-color);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    
+    max-height: 60vh; /* Ensures it doesn't get taller than the screen */
+    overflow-y: auto;
+    margin: 0;
   }
   
-  /* The class that JavaScript will use to reveal the list */
   .sidebar-toc.open ul {
     display: block;
-    animation: fadeIn 0.2s ease-in-out;
+    animation: fadeIn 0.15s ease-in-out;
   }
 
-  /* Make the title look like a clickable dropdown button */
+  /* 3. The Button Text (Matches your Futura A-/A+ buttons) */
   .toc-title-link {
     margin: 0 !important;
     padding: 0 !important;
-    border-bottom: none !important;
+    border: none !important;
     cursor: pointer;
     display: flex !important;
     justify-content: space-between;
     align-items: center;
+    gap: 8px; /* Space between text and arrow */
+    
+    font-family: "Futura", "Helvetica Neue", sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.05em !important;
+    color: var(--nav-text-color) !important;
+  }
+  
+  .toc-title-link:hover {
+    color: var(--highlight-color) !important;
   }
 
-  /* Add the downward arrow */
+  /* Upward arrow by default (since it opens up) */
   .toc-title-link::after {
-    content: "▼";
-    font-size: 0.8em;
-    color: var(--highlight-color);
+    content: "▲";
+    font-size: 0.7em;
   }
 
-  /* Flip the arrow and add a dividing line when open */
+  /* Downward arrow when open */
   .sidebar-toc.open .toc-title-link::after {
-    content: "▲";
+    content: "▼";
   }
+  
+  /* Clean up the open state so no extra borders appear */
   .sidebar-toc.open .toc-title-link {
-    border-bottom: 1px solid var(--nav-border-color) !important;
-    padding-bottom: 12px !important;
-    margin-bottom: 12px !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 
