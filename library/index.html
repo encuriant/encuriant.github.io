@@ -173,9 +173,8 @@ books I hold close to my heart, books that have shaped my thinking substantially
     <p>I like second-hand books. I like opening the first page to find scrawled on it ancient messages of love, or the full name of a stranger in elegant cursive; I like the 
  little pencilled annotations that show up unexpectedly on a page in the middle. (Please write on your books, in neat handwriting.)</p>
 
-    <p>I like to find my books in used book shops, especially those atmospheric ones, unkempt and unmanicured, home to a couple of cats that loiter its narrow alleyways, alleyways created by heaps and towers of precariously stacked books, the organic compounds from their breakdown diffusing into the air like perfume. Through that tight, disorderly physical space, I like to wander, hoping my eyes eventually stumble upon some striking book in some odd pile as if, amidst the dark dusty interiors, that one book was the target of a lone ray of light shot through the roof, visible only to my eyes. (Perhaps, it is the machinations of a biblio-Cupid.) Next comes a dopamine rush. It is a rush that can never come from the trillion-dollar online recommendation system of a semi-trillionaire.<span class="sidenote-mark"></span></p>
-
-    <div class="marginnote numbered">I no longer buy books on Amazon since coming across “How to resist Amazon and why” by Danny Crane and understanding how destructive they have been to local businesses and book shops. But I understand that this can be an unaffordable decision to many since Amazon sells books at a lower price, and books are expensive.</div>
+    <p>I like to find my books in used book shops, especially those atmospheric ones, unkempt and unmanicured, home to a couple of cats that loiter its narrow alleyways, alleyways created by heaps and towers of precariously stacked books, the organic compounds from their breakdown diffusing into the air like perfume. Through that tight, disorderly physical space, I like to wander, hoping my eyes eventually stumble upon some striking book in some odd pile as if, amidst the dark dusty interiors, that one book was the target of a lone ray of light shot through the roof, visible only to my eyes. (Perhaps, it is the machinations of a biblio-Cupid.) Next comes a dopamine rush. It is a rush that can never come from the trillion-dollar online recommendation system of a semi-trillionaire.<span class="sidenote-mark"></span>
+<span class="marginnote numbered">I no longer buy books on Amazon since coming across “How to resist Amazon and why” by Danny Crane and understanding how destructive they have been to local businesses and book shops. But I understand that this can be an unaffordable decision to many since Amazon sells books at a lower price, and books are expensive.</span></p>
 
     <p>You are right to infer from this that I judge a book not by its thoughtfully penned online reviews, but by its cover, the front page and a middle page (prose, like handwriting, only gets worse with the page number, so don’t fall into the first-page trap). Any book that I did appreciate has grown close to me since I irrationally and unapologetically assign meaning to our fateful encounter.</p>
 
@@ -183,9 +182,7 @@ books I hold close to my heart, books that have shaped my thinking substantially
 
     <h2 id="why-i-began-reading">Why I began reading</h2>
 
-    <p>When I resumed reading books in 2021, I was an insomniac seeking  a sedative activity.  But two pages into the activity, it became apparent that my brain had been too sandpapered by modern technology for reading to have any effect other than embarrassment (embarrassment from an attention span equalling that of a bumblebee orbiting a bouquet).<span class="sidenote-mark"></span> Reading is therefore now a serious pursuit at restoring my original cognitive faculties, and my honor.</p>
-
-    <div class="marginnote numbered">A bit ironic that the core technological innovation behind AI is an idea named <i>attention</i> made popular in a paper called “<i>Attention is all you need</i>”.</div>
+    <p>When I resumed reading books in 2021, I was an insomniac seeking  a sedative activity.  But two pages into the activity, it became apparent that my brain had been too sandpapered by modern technology for reading to have any effect other than embarrassment (embarrassment from an attention span equalling that of a bumblebee orbiting a bouquet).<span class="sidenote-mark"></span> Reading is therefore now a serious pursuit at restoring my original cognitive faculties, and my honor. <span class="marginnote numbered">A bit ironic that the core technological innovation behind AI is an idea named <i>attention</i> made popular in a paper called “<i>Attention is all you need</i>”.</span></p>
 
     <hr />
 
@@ -2081,6 +2078,105 @@ books I hold close to my heart, books that have shaped my thinking substantially
       
     </div>
   
+  
+  <!-- Mobile Font Controls -->
+<div id="mobile-font-controls">
+  <button id="btn-decrease-font">A-</button>
+  <button id="btn-increase-font">A+</button>
+</div>
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- 1. INTERACTIVE FOOTNOTES ---
+    const marks = document.querySelectorAll('.sidenote-mark');
+    marks.forEach(mark => {
+      mark.addEventListener('click', function(e) {
+        if (window.innerWidth <= 1100) {
+          const note = this.nextElementSibling;
+          if (note && note.classList.contains('marginnote')) {
+            note.classList.toggle('revealed');
+          } 
+        } 
+      });
+    });
+
+    // --- 2. MOBILE TOC ACCORDION ---
+    const tocHeader = document.querySelector('.toc-title-link');
+    const tocContainer = document.querySelector('.sidebar-toc');
+    const tocLinks = document.querySelectorAll('.sidebar-toc ul a');
+
+    if (tocHeader && tocContainer) {
+      // Toggle the menu open/closed when tapping "Sections"
+      tocHeader.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault(); // Prevents the page from jumping
+          tocContainer.classList.toggle('open');
+        }
+      });
+
+      // Automatically close the menu when a specific topic is tapped
+      tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            tocContainer.classList.remove('open');
+          }
+        });
+      });
+    }
+
+
+    // --- 3. MOBILE TEXT ZOOM ---
+    const btnIncrease = document.getElementById('btn-increase-font');
+    const btnDecrease = document.getElementById('btn-decrease-font');
+    
+    if (btnIncrease && btnDecrease) {
+      let currentZoom = 1.0;
+      
+      // Create a dynamic style tag to override CSS sizes on the fly
+      const fontStyleSheet = document.createElement('style');
+      document.head.appendChild(fontStyleSheet);
+
+      function updateFontSize() {
+        // Calculate new sizes based on your site's default 17px and 13px
+        const pSize = Math.round(17 * currentZoom);
+        const pLine = Math.round(25 * currentZoom);
+        const noteSize = Math.round(13 * currentZoom);
+        const noteLine = Math.round(18 * currentZoom);
+        
+        fontStyleSheet.innerHTML = `
+          @media screen and (max-width: 768px) {
+            .blogbody p, .blogbody li {
+              font-size: ${pSize}px !important;
+              line-height: ${pLine}px !important;
+            }
+            .marginnote, .marginnote p {
+              font-size: ${noteSize}px !important;
+              line-height: ${noteLine}px !important;
+            }
+          }
+        `;
+      }
+
+      btnIncrease.addEventListener('click', () => {
+        if (currentZoom < 1.4) { // Cap maximum zoom at 140%
+          currentZoom += 0.1;
+          updateFontSize();
+        }
+      });
+
+      btnDecrease.addEventListener('click', () => {
+        if (currentZoom > 0.8) { // Cap minimum zoom at 80%
+          currentZoom -= 0.1;
+          updateFontSize();
+        }
+      });
+    }
+  });
+</script>
+
+
 </div>
 
           </section>

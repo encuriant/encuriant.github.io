@@ -662,7 +662,7 @@ section.post em strong, section > p em strong {
 
 .blogbody p {
   hyphens: auto;
-  text-wrap: pretty; /* Prevents single words from sitting alone on the last line */
+  text-wrap: wrap; 
 }
 
 
@@ -1307,20 +1307,67 @@ ul.posts .series-parts-list li a:hover {
    13. Media Queries (Mobile Overrides)
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   body {
     margin: 0 !important; 
   }
-  /* Responsive widths for main content and blog posts */
+/* Responsive widths for main content and blog posts */
   #container, section.post {
-    max-width: 95%; /* Make content take more width on small screens */
-    margin: 10px auto; /* Center on mobile */
+    max-width: 98%; /* Pushes the container closer to the edge */
+    margin: 5px auto; 
   }
 
-  .content { /* Ensure .content's padding doesn't create excessive inner margins */
-    padding: 15px; /* Reduced overall padding for mobile */
+/* 1. KILL THE NESTED PADDING TRAP */
+  .content { 
+    padding: 10px 5px !important; /* Vastly reduced global margins */
+  }
+  .blog-post, section.post { 
+    padding: 0 !important; 
+  }
+  section.post > * {
+    padding: 0 5px !important; /* Overrides the global 20px indent */
+  }
+  .library-container {
+    padding: 0 5px !important;
   }
 
+
+/* 2. MOBILE FONT ZOOM CONTROLS */
+  #mobile-font-controls {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 75px; /* Sits perfectly next to your 42px theme toggle */
+    z-index: 1000000;
+    background-color: var(--background-color);
+    border: 1px solid var(--nav-border-color);
+    border-radius: 25px;
+    padding: 0 5px;
+    height: 42px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    align-items: center;
+  }
+  
+  #mobile-font-controls button {
+    background: none;
+    border: none;
+    color: var(--nav-text-color);
+    
+    /* Enforces the sleek Futura stack and kills browser defaults */
+    font-family: "Futura", "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important; /* Drops the heavy bolding */
+    letter-spacing: 0.05em !important; /* Adds a breath of space for elegance */
+    
+    cursor: pointer;
+    height: 100%;
+    padding: 0 12px;
+    transition: color 0.2s;
+  }
+  
+  #mobile-font-controls button:hover {
+    color: var(--highlight-color);
+  }
   .blog-post, section.post { /* Apply consistent mobile padding within these */
       padding: 0 15px; /* Example: inner padding for mobile blog/main page section content */
   }
@@ -2019,9 +2066,66 @@ display: none !important;
 }
 
 /* Tier 3: Final Hide (Viewport below 900px) */
+/* Tier 3: Mobile Inline Accordion (Viewport below 900px) */
 @media screen and (max-width: 900px) {
   .sidebar-toc {
-    display: none !important; /* Finally hide when overlap is inevitable */
+    display: block !important; 
+    
+    /* Restores the floating behavior */
+    position: -webkit-sticky;
+    position: sticky; 
+    top: 15px; /* Adds a nice 15px gap from the top of the screen */
+    z-index: 1000; /* Forces the menu to float above your images and text */
+    
+    width: 100%;
+    margin: 0 0 30px 0;
+    padding: 15px;
+    background-color: var(--background-color); /* Matches the page exactly */
+    border: 1px solid var(--nav-border-color);
+    border-radius: 3px;
+    opacity: 1;
+    
+    /* Adds a subtle drop shadow so it visually lifts off the page while scrolling */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .sidebar-toc ul {
+    display: none; /* Hides the list by default */
+    margin-top: 15px;
+  }
+  
+  /* The class that JavaScript will use to reveal the list */
+  .sidebar-toc.open ul {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  /* Make the title look like a clickable dropdown button */
+  .toc-title-link {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: none !important;
+    cursor: pointer;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Add the downward arrow */
+  .toc-title-link::after {
+    content: "▼";
+    font-size: 0.8em;
+    color: var(--highlight-color);
+  }
+
+  /* Flip the arrow and add a dividing line when open */
+  .sidebar-toc.open .toc-title-link::after {
+    content: "▲";
+  }
+  .sidebar-toc.open .toc-title-link {
+    border-bottom: 1px solid var(--nav-border-color) !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 12px !important;
   }
 }
 
@@ -2444,7 +2548,7 @@ display: none !important;
 /* --- Mobile Fallback --- */
 /* When the screen is smaller than 1100px, there isn't enough room for a right column.
    This pulls the marginalia back inline, styling it as an indented block. */
-@media screen and (max-width: 1100px) {
+/*@media screen and (max-width: 1100px) {
   .marginnote {
     float: none;
     display: block;
@@ -2452,6 +2556,44 @@ display: none !important;
     width: 85%;
     border-left: 1px solid var(--nav-border-color);
     padding-left: 15px;
+  }
+}*/
+
+/* --- Mobile Fallback (Interactive Sidenotes) --- */
+@media screen and (max-width: 1100px) {
+  /* 1. Hide the note by default, but keep it minimal when opened */
+  .marginnote {
+    display: none; 
+    float: none;
+    margin: 1rem 0 1rem 1.5rem; /* Indents the note slightly from the main text */
+    width: 85%; /* Prevents the text from stretching too far */
+    
+    /* Demure, quiet styling */
+    background-color: transparent;
+    border: none;
+    border-left: 1px solid var(--nav-border-color); /* A single, delicate line */
+    border-radius: 0;
+    padding: 0 0 0 15px; /* Space between the text and the left line */
+    box-shadow: none;
+  }
+
+  /* 2. The class that JavaScript will trigger to show the note */
+  .marginnote.revealed {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  /* 3. Make the superscript number look tap-able */
+  .sidenote-mark {
+    cursor: pointer;
+    padding: 2px 6px; 
+    background-color: rgba(192, 171, 119, 0.1); 
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .sidenote-mark:active {
+    background-color: rgba(192, 171, 119, 0.3);
   }
 }
 
