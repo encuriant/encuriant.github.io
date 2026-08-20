@@ -47,13 +47,13 @@
 
   /* --- Remaining Dark Vintage Variables --- */
   --blockquote-background: #171513; 
-  --blockquote-text: #a89f88;       
+  --blockquote-text: #c2b89f;;       
   --pre-background: #171513;   
-  --nav-text-color: #a89f88;
+  --nav-text-color: #c2b89f;
   --heading-color: #c0ab77;
   --paragraph-color: #d9d1ba;
   --papertitle-color: #c0ab77;
-  --conference-color: #706a59;
+  --conference-color: #847d6a;
   --list-item-color: #d9d1ba;
   --logo-color: #c0ab77;
   --blogname-color: #c0ab77;
@@ -61,11 +61,11 @@
   --strong-color: #d1c195;
   --strong-shadow: none;
   --tooltip-background: #11100e;
-  --tooltip-text-color: #a89f88;
+  --tooltip-text-color: #c2b89f;
   --tooltip-shadow: rgba(0, 0, 0, 0.8);
-  --post-date-color: #928a74;  
+  --post-date-color: #b3a992;  
   --em-strong-bg: #292419;     
-  --blockquote-hover-text: #c0ab77;
+  --blockquote-hover-text: #c2b89f;
   --mathjax-highlight-background: #2b2518; 
   --mathjax-highlight-text: #d1c195;
   --main-page-fontsize: 18px;
@@ -2259,7 +2259,7 @@ display: none !important;
 .toc-filler {
   flex-grow: 1;
   border-bottom: 1px dotted var(--nav-border-color);
-  opacity: 0.3;
+  opacity: 0.5;
   margin: 0 10px;
 }
 
@@ -2276,7 +2276,7 @@ display: none !important;
 .toc-abstract {
   font-size: 13px !important;
   line-height: 1.4 !important;
-  opacity: 0.6;
+  opacity: 0.7;
   margin: 2px 0 10px 0 !important;
   padding-left: 15px;
 }
@@ -2660,7 +2660,7 @@ display: none !important;
   font-family: "Futura", "Helvetica Neue", sans-serif;
   font-size: 10px;
   color: var(--post-date-color);
-  opacity: 0.5; /* Keeps them quiet and out of the way */
+  opacity: 0.75; /* Keeps them quiet and out of the way */
   text-transform: lowercase;
   letter-spacing: 0.05em;
   margin-left: auto; /* This automatically pushes the tags to the far right edge */
@@ -2730,3 +2730,20 @@ display: none !important;
   text-align: justify !important;
   text-justify: inter-word !important; /* Helps the browser distribute spacing cleanly */
 }
+
+
+/* ==========================================================================
+   Contrast Overrides for Dark/Light Mode
+   ========================================================================== */
+
+/* 1. Default (Dark Mode): Boost opacity for readability */
+.toc-category-description { opacity: 0.85 !important; }
+.marginnote { opacity: 1.0 !important; }
+.book-author { opacity: 0.95 !important; }
+.sidebar-toc { opacity: 1.0 !important; }
+
+/* 2. Light Mode: Restore the heavier, delicate fade */
+[data-theme="light"] .toc-category-description { opacity: 0.7 !important; }
+[data-theme="light"] .marginnote { opacity: 0.9 !important; }
+[data-theme="light"] .book-author { opacity: 0.85 !important; }
+[data-theme="light"] .sidebar-toc { opacity: 0.95 !important; }
