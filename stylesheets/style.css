@@ -1068,21 +1068,42 @@ section.post em strong, section > p em strong {
 }
 
 
-/* Theme Toggle Button */
-/*#theme-toggle-button {
+/* ==========================================================================
+   GLOBAL FONT ZOOM CONTROLS
+   ========================================================================== */
+#font-controls {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  right: 75px; /* Sits perfectly to the left of your 42px theme toggle */
+  z-index: 1000000;
+  background-color: var(--background-color);
+  border: 1px solid var(--nav-border-color);
+  border-radius: 25px;
+  padding: 0 5px;
+  height: 42px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+#font-controls button {
   background: none;
   border: none;
   color: var(--nav-text-color);
-  font-size: 1.2em;
-  padding: 10px 0px;
-  margin: 10px 0px;
+  font-family: "Futura", "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
   cursor: pointer;
-  transition: color 0.3s ease;
-}*/
+  height: 100%;
+  padding: 0 12px;
+  transition: color 0.2s;
+}
 
-/*#theme-toggle-button:hover {
-  color: var(--link-color);
-}*/
+#font-controls button:hover {
+  color: var(--highlight-color);
+}
+
 
 
 /* Visually Hidden for Accessibility */
@@ -1243,7 +1264,8 @@ section.post em strong, section > p em strong {
 
 .post-navigation {
   display: flex;
-  justify-content: space-between; /* Puts previous on left, next on right */
+  justify-content: center; /* Brings the links tightly together in the middle */
+  gap: 40px; /* Tweak this number to increase or decrease the spacing between them */
   align-items: center;
   margin-top: 40px; /* Space above navigation */
   padding: 15px 0;
@@ -1311,63 +1333,38 @@ ul.posts .series-parts-list li a:hover {
   body {
     margin: 0 !important; 
   }
+  /* Locks ALL headings, category titles, and book metadata to the exact left edge */
+  h1, h2, h3, h4, h5, h6,
+  .toc-category-title,
+  .subsubheading,
+  .book-title,
+  .book-author {
+    margin-left: 0 !important; /* Neutralizes the global 'auto' margin */
+    padding-left: 0 !important;
+    text-align: left !important;
+  }
 /* Responsive widths for main content and blog posts */
-  #container, section.post {
-    max-width: 98%; /* Pushes the container closer to the edge */
-    margin: 5px auto; 
+  #container, .post, section.post, .library-container {
+    max-width: 98% !important; 
+    margin: 5px auto !important; /* The !important forcefully centers the box */
+    display: block !important;
   }
 
-/* 1. KILL THE NESTED PADDING TRAP */
+  /* 1. KILL THE NESTED PADDING TRAP */
   .content { 
-    padding: 10px 5px !important; /* Vastly reduced global margins */
+    padding: 10px 5px !important; 
   }
-  .blog-post, section.post { 
+  
+  /* Strips the outer padding from ALL post variations */
+  .post, section.post, .blog-post, .library-container { 
     padding: 0 !important; 
   }
-  section.post > * {
-    padding: 0 5px !important; /* Overrides the global 20px indent */
-  }
-  .library-container {
-    padding: 0 5px !important;
+  
+  /* Applies perfectly symmetrical inner margins to the children */
+  .post > *, section.post > *, .library-container > * {
+    padding: 0 5px !important; 
   }
 
-
-/* 2. MOBILE FONT ZOOM CONTROLS */
-  #mobile-font-controls {
-    display: flex;
-    position: fixed;
-    bottom: 20px;
-    right: 75px; /* Sits perfectly next to your 42px theme toggle */
-    z-index: 1000000;
-    background-color: var(--background-color);
-    border: 1px solid var(--nav-border-color);
-    border-radius: 25px;
-    padding: 0 5px;
-    height: 42px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    align-items: center;
-  }
-  
-  #mobile-font-controls button {
-    background: none;
-    border: none;
-    color: var(--nav-text-color);
-    
-    /* Enforces the sleek Futura stack and kills browser defaults */
-    font-family: "Futura", "Helvetica Neue", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400 !important; /* Drops the heavy bolding */
-    letter-spacing: 0.05em !important; /* Adds a breath of space for elegance */
-    
-    cursor: pointer;
-    height: 100%;
-    padding: 0 12px;
-    transition: color 0.2s;
-  }
-  
-  #mobile-font-controls button:hover {
-    color: var(--highlight-color);
-  }
   .blog-post, section.post { /* Apply consistent mobile padding within these */
       padding: 0 15px; /* Example: inner padding for mobile blog/main page section content */
   }
@@ -1428,6 +1425,7 @@ ul.posts .series-parts-list li a:hover {
     text-align: left;
     margin-left: 0;
   }
+
 
   .post-navigation {
     flex-direction: column; /* Stack vertically */
@@ -2081,7 +2079,7 @@ display: none !important;
     padding: 0 15px !important;
     
     overflow: visible !important;
-    
+
     background-color: var(--background-color) !important;
     border: 1px solid var(--nav-border-color) !important;
     border-radius: 25px !important; /* Gives it the sleek rounded shape */
@@ -2215,6 +2213,9 @@ display: none !important;
   color: var(--text-color) !important;
   opacity: 0.7;
   margin: 0 0 15px 0 !important;
+  /* Adds perfect justification to the paragraph block */
+  text-align: justify !important;
+  text-justify: inter-word !important;
 }
 
 .toc-list {
@@ -2535,92 +2536,61 @@ display: none !important;
    15. Marginalia & Sidenotes
    ========================================================================== */
 
+/* ==========================================================================
+   15. Marginalia & Sidenotes (Interactive Drawer Style Everywhere)
+   ========================================================================== */
+
 .marginnote {
-  float: right;
-  clear: right;
-  /* Pushes the note out of the 600px center column and into the right gutter */
-  margin-right: -280px; 
-  width: 220px;         /* Keeps the text line-length short and readable */
-  margin-top: 0.3rem;   /* Aligns it visually with the text it references */
-  margin-bottom: 1rem;
+  display: none; /* Hidden by default */
+  float: none;
+  margin: 1rem 0 1rem 1.5rem; /* Indents the note slightly from the main text */
+  width: 85%; 
+  
+  /* Demure, quiet styling */
+  background-color: transparent;
+  border: none;
+  border-left: 1px solid var(--nav-border-color); /* A single, delicate line */
+  border-radius: 0;
+  padding: 0 0 0 15px; 
+  box-shadow: none;
   
   /* Vintage Typography Styling */
   font-family: "IM Fell Great Primer", serif;
   font-size: 13px;
   line-height: 1.4;
-  color: var(--post-date-color); /* Uses your muted, oxidized ink color */
+  color: var(--post-date-color);
   text-align: left;
   opacity: 0.9;
 }
 
-/* Optional: Adds a tiny vintage dot leader to connect it to the main text */
-.marginnote::before {
-  content: "⬩ ";
-  color: var(--highlight-color);
-  font-size: 0.9em;
+/* The class that JavaScript triggers to show the note */
+.marginnote.revealed {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
 }
 
-/* Forces paragraphs generated by Markdown to obey the marginnote styling */
+/* Make the superscript number look interactive everywhere */
+.sidenote-mark {
+  cursor: pointer;
+  padding: 2px 6px; 
+  background-color: rgba(192, 171, 119, 0.1); 
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: inline;
+}
+
+.sidenote-mark:active {
+  background-color: rgba(192, 171, 119, 0.3);
+}
+
+/* Forces paragraphs generated by Markdown inside notes to obey styling */
 .marginnote p {
   font-size: inherit !important;
   color: inherit !important;
   line-height: inherit;
-  font-weight: 400 !important; /* Overrides the heavy 800-weight blogbody paragraphs */
-  margin: 0; /* Prevents awkward vertical spacing */
+  font-weight: 400 !important;
+  margin: 0;
 }
-
-/* --- Mobile Fallback --- */
-/* When the screen is smaller than 1100px, there isn't enough room for a right column.
-   This pulls the marginalia back inline, styling it as an indented block. */
-/*@media screen and (max-width: 1100px) {
-  .marginnote {
-    float: none;
-    display: block;
-    margin: 1.5rem 0 1.5rem 1.5rem;
-    width: 85%;
-    border-left: 1px solid var(--nav-border-color);
-    padding-left: 15px;
-  }
-}*/
-
-/* --- Mobile Fallback (Interactive Sidenotes) --- */
-@media screen and (max-width: 1100px) {
-  /* 1. Hide the note by default, but keep it minimal when opened */
-  .marginnote {
-    display: none; 
-    float: none;
-    margin: 1rem 0 1rem 1.5rem; /* Indents the note slightly from the main text */
-    width: 85%; /* Prevents the text from stretching too far */
-    
-    /* Demure, quiet styling */
-    background-color: transparent;
-    border: none;
-    border-left: 1px solid var(--nav-border-color); /* A single, delicate line */
-    border-radius: 0;
-    padding: 0 0 0 15px; /* Space between the text and the left line */
-    box-shadow: none;
-  }
-
-  /* 2. The class that JavaScript will trigger to show the note */
-  .marginnote.revealed {
-    display: block;
-    animation: fadeIn 0.2s ease-in-out;
-  }
-
-  /* 3. Make the superscript number look tap-able */
-  .sidenote-mark {
-    cursor: pointer;
-    padding: 2px 6px; 
-    background-color: rgba(192, 171, 119, 0.1); 
-    border-radius: 4px;
-    transition: background-color 0.2s;
-  }
-  
-  .sidenote-mark:active {
-    background-color: rgba(192, 171, 119, 0.3);
-  }
-}
-
 
 
 
@@ -2748,4 +2718,15 @@ display: none !important;
   color: var(--highlight-color);
   font-weight: 700;
   font-family: "IM Fell Great Primer", serif;
+}
+
+
+/* Force justification on all footnote types */
+.marginnote, 
+.marginnote p, 
+.tooltip p, 
+.footnotes ol li, 
+.footnotes ol li p {
+  text-align: justify !important;
+  text-justify: inter-word !important; /* Helps the browser distribute spacing cleanly */
 }

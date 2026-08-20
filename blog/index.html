@@ -131,7 +131,6 @@
           <section class='post'>
             <h1></h1>
             
-<!-- 
 <div class="blog-controls" style="margin-bottom: 40px;">
   <select id="tag-filter" class="control-btn" style="cursor: pointer;" onchange="filterPosts()">
     <option value="all">All Topics</option>
@@ -142,8 +141,10 @@
     
       <option value="miscellaneous observations">Miscellaneous Observations</option>
     
+      <option value="etymology">Etymology</option>
+    
   </select>
-</div> -->
+</div>
 
 <div id="blog-sections">
   
@@ -181,6 +182,20 @@
       
       <!-- The Academic Topic Heading -->
       <h2 class="subheading" style="margin-top: 40px;">Miscellaneous Observations</h2>
+      
+      <ul class="blog-index-list">
+        <!-- site.tags[tag] pulls ONLY posts containing this specific tag -->
+        
+      </ul>
+      
+    </div>
+  
+    
+    <!-- We wrap each section in a div tagged with its topic name -->
+    <div class="tag-section" data-section-tag="etymology">
+      
+      <!-- The Academic Topic Heading -->
+      <h2 class="subheading" style="margin-top: 40px;">Etymology</h2>
       
       <ul class="blog-index-list">
         <!-- site.tags[tag] pulls ONLY posts containing this specific tag -->
@@ -237,6 +252,106 @@
           </section>
         </div>
     </div>
+
+    <!-- Global Font Controls -->
+<div id="font-controls">
+  <button id="btn-decrease-font">A-</button>
+  <button id="btn-increase-font">A+</button>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const btnIncrease = document.getElementById('btn-increase-font');
+  const btnDecrease = document.getElementById('btn-decrease-font');
+  
+  if (btnIncrease && btnDecrease) {
+    let currentZoom = 1.0;
+    
+    const fontStyleSheet = document.createElement('style');
+    document.head.appendChild(fontStyleSheet);
+
+    function updateFontSize() {
+      // 1. Main blog text (Default: 17px)
+      const pSize = Math.round(17 * currentZoom);
+      const pLine = Math.round(25 * currentZoom);
+      
+      // 2. Main Headings (Defaults: H1=24px, H2=22px, H3=20px)
+      const h1Size = Math.round(24 * currentZoom);
+      const h1Line = Math.round(35 * currentZoom);
+      const h2Size = Math.round(22 * currentZoom);
+      const h2Line = Math.round(35 * currentZoom);
+      const h3Size = Math.round(20 * currentZoom);
+      const h3Line = Math.round(30 * currentZoom); 
+
+      // 3. Custom Section Headings (Defaults: Subhead=20px, Subsubhead/TOC=14px)
+      const subheadSize = Math.round(20 * currentZoom);
+      const subsubheadSize = Math.round(14 * currentZoom);
+      
+      // 4. Book titles (Default: 15px)
+      const titleSize = Math.round(15 * currentZoom);
+      const titleLine = Math.round(18 * currentZoom);
+
+      // 5. Descriptions & Blurbs (Default: 14px)
+      const descSize = Math.round(14 * currentZoom);
+      const descLine = Math.round(20 * currentZoom);
+      
+      // 6. Notes, Tooltips, & Authors (Default: 13px)
+      const noteSize = Math.round(13 * currentZoom);
+      const noteLine = Math.round(18 * currentZoom);
+      
+      fontStyleSheet.innerHTML = `
+        /* Main Blog Text */
+        .blogbody p, .blogbody li {
+          font-size: ${pSize}px !important;
+          line-height: ${pLine}px !important;
+        }
+
+        /* Standard Blog Headings */
+        .blogbody h1 { font-size: ${h1Size}px !important; line-height: ${h1Line}px !important; }
+        .blogbody h2 { font-size: ${h2Size}px !important; line-height: ${h2Line}px !important; }
+        .blogbody h3 { font-size: ${h3Size}px !important; line-height: ${h3Line}px !important; }
+
+        /* Custom Library & Index Headings */
+        .subheading { font-size: ${subheadSize}px !important; }
+        .subsubheading, .toc-category-title { font-size: ${subsubheadSize}px !important; }
+        
+        /* Book Titles */
+        .book-title {
+          font-size: ${titleSize}px !important;
+          line-height: ${titleLine}px !important;
+        }
+
+        /* Library Descriptions & Blurb Clouds */
+        .toc-category-description, .book-blurb-cloud p {
+          font-size: ${descSize}px !important;
+          line-height: ${descLine}px !important;
+        }
+
+        /* Marginalia, Tooltips, and Author Names */
+        .marginnote, .marginnote p, .tooltip p, .book-author {
+          font-size: ${noteSize}px !important;
+          line-height: ${noteLine}px !important;
+        }
+      `;
+    }
+
+    btnIncrease.addEventListener('click', () => {
+      if (currentZoom < 1.4) { 
+        currentZoom += 0.1;
+        updateFontSize();
+      }
+    });
+
+    btnDecrease.addEventListener('click', () => {
+      if (currentZoom > 0.8) { 
+        currentZoom -= 0.1;
+        updateFontSize();
+      }
+    });
+  }
+});
+</script>
     <footer>
 
   <br />
