@@ -25,7 +25,6 @@
    ========================================================================== */
 
    :root {
-  /* Herbarium Poster Dark Theme - Unified Gold Accents */
   --background-color: #11100e; 
   --text-color: #d9d1ba;       
   --container-background: transparent;
@@ -441,13 +440,12 @@ a.big-button.green:hover, .as-link.big-button.green:hover { background: #797; }
    ========================================================================== */
 
 
-
 section.post {
-  max-width: 800px; /* Specific width for blog posts */
+  max-width: 600px; /* Shrunk from 800px to match the blog and library */
   margin: 0 auto;   /* Centers section.post within its parent */
   text-align: left;
   border-top: 0;
-  padding: 0; /* Adjust or remove if you want padding here */
+  padding: 0; 
 }
 /* Ensure the padding for direct children of section.post is also reasonable */
 section.post > * {
@@ -483,7 +481,6 @@ section.post, section > p { /* This rule is problematic, p will inherit its own 
   font-size: var(--main-page-fontsize); /* Redundant if p is already 14px */
   line-height: 1.6em; /* Different from global p's line-height */
   font-weight: 800;
-  max-width: 100%;
 }
 section.post em strong, section > p em strong {
   background-color: var(--em-strong-bg); /* Using variable */

@@ -364,6 +364,19 @@ document.addEventListener('DOMContentLoaded', function() {
   //-->
   </script><noscript>first name AT google DOT com</noscript>
 
+  <script>
+
+    // --- 1. INTERACTIVE FOOTNOTES (GLOBAL) ---
+    const marks = document.querySelectorAll('.sidenote-mark');
+    marks.forEach(mark => {
+      mark.addEventListener('click', function(e) {
+        const note = this.nextElementSibling;
+        if (note && note.classList.contains('marginnote')) {
+          note.classList.toggle('revealed');
+        } 
+      });
+    });
+  </script>
 
 
 					<br />
