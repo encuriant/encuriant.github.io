@@ -130,79 +130,17 @@
 </nav>
           <section class='post'>
             <h1></h1>
-            
+            <p>This is under creation currently. Thank you for visiting; we appreciate your curiosity.</p>
+
+<!-- 
 <div class="blog-controls" style="margin-bottom: 40px;">
   <select id="tag-filter" class="control-btn" style="cursor: pointer;" onchange="filterPosts()">
     <option value="all">All Topics</option>
     
-      <option value="language">Language</option>
-    
-      <option value="humor">Humor</option>
-    
-      <option value="miscellaneous observations">Miscellaneous Observations</option>
-    
-      <option value="etymology">Etymology</option>
-    
   </select>
-</div>
+</div>  -->
 
 <div id="blog-sections">
-  
-    
-    <!-- We wrap each section in a div tagged with its topic name -->
-    <div class="tag-section" data-section-tag="language">
-      
-      <!-- The Academic Topic Heading -->
-      <h2 class="subheading" style="margin-top: 40px;">Language</h2>
-      
-      <ul class="blog-index-list">
-        <!-- site.tags[tag] pulls ONLY posts containing this specific tag -->
-        
-      </ul>
-      
-    </div>
-  
-    
-    <!-- We wrap each section in a div tagged with its topic name -->
-    <div class="tag-section" data-section-tag="humor">
-      
-      <!-- The Academic Topic Heading -->
-      <h2 class="subheading" style="margin-top: 40px;">Humor</h2>
-      
-      <ul class="blog-index-list">
-        <!-- site.tags[tag] pulls ONLY posts containing this specific tag -->
-        
-      </ul>
-      
-    </div>
-  
-    
-    <!-- We wrap each section in a div tagged with its topic name -->
-    <div class="tag-section" data-section-tag="miscellaneous observations">
-      
-      <!-- The Academic Topic Heading -->
-      <h2 class="subheading" style="margin-top: 40px;">Miscellaneous Observations</h2>
-      
-      <ul class="blog-index-list">
-        <!-- site.tags[tag] pulls ONLY posts containing this specific tag -->
-        
-      </ul>
-      
-    </div>
-  
-    
-    <!-- We wrap each section in a div tagged with its topic name -->
-    <div class="tag-section" data-section-tag="etymology">
-      
-      <!-- The Academic Topic Heading -->
-      <h2 class="subheading" style="margin-top: 40px;">Etymology</h2>
-      
-      <ul class="blog-index-list">
-        <!-- site.tags[tag] pulls ONLY posts containing this specific tag -->
-        
-      </ul>
-      
-    </div>
   
 </div>
 
@@ -364,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //-->
   </script><noscript>first name AT google DOT com</noscript>
 
-  <script>
+<!--   <script>
 
     // --- 1. INTERACTIVE FOOTNOTES (GLOBAL) ---
     const marks = document.querySelectorAll('.sidenote-mark');
@@ -377,7 +315,28 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   </script>
+ -->
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Find all marks and all notes in the exact order they appear on the page
+    const marks = document.querySelectorAll('.sidenote-mark');
+    const notes = document.querySelectorAll('.marginnote');
+
+    // 2. Pair them up by their sequence number
+    marks.forEach((mark, index) => {
+      mark.addEventListener('click', function(e) {
+        
+        // Find the specific note that shares this mark's index (e.g., Mark #3 opens Note #3)
+        const note = notes[index];
+        
+        if (note && note.classList.contains('marginnote')) {
+          note.classList.toggle('revealed');
+        } 
+      });
+    });
+  });
+</script>
 
 					<br />
 					<br />

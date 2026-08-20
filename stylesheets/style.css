@@ -2168,10 +2168,6 @@ display: none !important;
 
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
 
 
@@ -2536,22 +2532,62 @@ display: none !important;
 /* ==========================================================================
    15. Marginalia & Sidenotes (Interactive Drawer Style Everywhere)
    ========================================================================== */
-
 .marginnote {
-  display: none; /* Hidden by default */
+  display: inline-block; 
+  max-height: 0;
+  max-width: 0; 
+  overflow: hidden;
+  margin: 0; 
+  border-left: 1px solid transparent;
+  vertical-align: top; 
+  
+  /* Start fully transparent when closed */
+  opacity: 0;
+  
+  /* Keep your existing styling */
   float: none;
-  margin: 1rem 0 1rem 1.5rem; /* Indents the note slightly from the main text */
+  width: 85%; 
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0 0 0 15px; 
+  box-shadow: none;
+  font-family: "IM Fell Great Primer", serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--post-date-color);
+  text-align: justify !important;
+  text-justify: inter-word !important;
+  
+  /* ON CLOSE: Fade out quickly (0.2s), wait for the fade to finish, THEN collapse the height */
+  transition: opacity 0.2s ease, max-height 0.4s ease 0.2s, margin-top 0.4s ease 0.2s, margin-bottom 0.4s ease 0.2s, max-width 0s 0.6s;
+}
+
+.marginnote.revealed {
+  display: block; 
+  max-width: 100%; 
+  max-height: 1500px; 
+  margin: 1rem 0 1rem 1.5rem; 
+  border-left: 1px solid var(--nav-border-color); 
+  
+  /* Fully visible when open (will be overridden by your dark/light AA rules below) */
+  opacity: 1;
+  
+  /* ON OPEN: Expand width instantly, expand height, and fade in opacity at the same time */
+  transition: max-width 0s, max-height 0.4s ease, margin-top 0.4s ease, margin-bottom 0.4s ease, opacity 0.4s ease;
+}
+/*.marginnote {
+  display: none; 
+  float: none;
+  margin: 1rem 0 1rem 1.5rem; 
   width: 85%; 
   
-  /* Demure, quiet styling */
   background-color: transparent;
   border: none;
-  border-left: 1px solid var(--nav-border-color); /* A single, delicate line */
+  border-left: 1px solid var(--nav-border-color); 
   border-radius: 0;
   padding: 0 0 0 15px; 
   box-shadow: none;
   
-  /* Vintage Typography Styling */
   font-family: "IM Fell Great Primer", serif;
   font-size: 13px;
   line-height: 1.4;
@@ -2560,11 +2596,10 @@ display: none !important;
   opacity: 0.9;
 }
 
-/* The class that JavaScript triggers to show the note */
 .marginnote.revealed {
   display: block;
   animation: fadeIn 0.2s ease-in-out;
-}
+}*/
 
 /* Make the superscript number look interactive everywhere */
 .sidenote-mark {
@@ -2685,11 +2720,12 @@ display: none !important;
 }
 
 
+
 /* --- Automated Sidenote Numbering --- */
 
-/* 1. Reset the counter at the start of the text block */
+/* 1. Reset BOTH counters at the start of the text block */
 .blogbody {
-  counter-reset: sidenote-counter;
+  counter-reset: sidenote-counter marginnote-counter;
 }
 
 /* 2. The inline marker that triggers the count */
@@ -2709,13 +2745,48 @@ display: none !important;
   margin-left: 2px;
 }
 
-/* 4. The matching number that appears inside the margin note */
+/* 4. Give the grouped notes their OWN counter so they count sequentially */
+.marginnote.numbered {
+  counter-increment: marginnote-counter;
+}
 .marginnote.numbered::before {
-  content: counter(sidenote-counter) ". ";
+  content: counter(marginnote-counter) ". ";
   color: var(--highlight-color);
   font-weight: 700;
   font-family: "IM Fell Great Primer", serif;
 }
+
+/* --- Automated Sidenote Numbering --- */
+
+/* 1. Reset the counter at the start of the text block */
+/*.blogbody {
+  counter-reset: sidenote-counter;
+}*/
+
+/* 2. The inline marker that triggers the count */
+/*.sidenote-mark {
+  counter-increment: sidenote-counter;
+  display: inline;
+}*/
+
+/* 3. The superscript number that appears in the main text */
+/*.sidenote-mark::after {
+  content: counter(sidenote-counter);
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+  color: var(--highlight-color);
+  font-weight: 700;
+  margin-left: 2px;
+}*/
+
+/* 4. The matching number that appears inside the margin note */
+/*.marginnote.numbered::before {
+  content: counter(sidenote-counter) ". ";
+  color: var(--highlight-color);
+  font-weight: 700;
+  font-family: "IM Fell Great Primer", serif;
+}*/
 
 
 /* Force justification on all footnote types */
