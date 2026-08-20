@@ -317,21 +317,46 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
  -->
 
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // 1. Find all marks and all notes in the exact order they appear on the page
     const marks = document.querySelectorAll('.sidenote-mark');
     const notes = document.querySelectorAll('.marginnote');
+    
+    // Create a unique storage key based on the URL so page A doesn't affect page B
+    const storageKey = 'openNotes_' + window.location.pathname;
+    
+    // 1. On page load, retrieve the saved list of open notes (or an empty list if none)
+    let openNotes = JSON.parse(localStorage.getItem(storageKey)) || [];
+    
+    // 2. Re-open any notes that were saved in the list
+    openNotes.forEach(index => {
+      if (notes[index]) {
+        notes[index].classList.add('revealed');
+      }
+    });
 
-    // 2. Pair them up by their sequence number
+    // 3. Handle clicks and update the saved list in real-time
     marks.forEach((mark, index) => {
       mark.addEventListener('click', function(e) {
-        
-        // Find the specific note that shares this mark's index (e.g., Mark #3 opens Note #3)
         const note = notes[index];
         
         if (note && note.classList.contains('marginnote')) {
           note.classList.toggle('revealed');
+          
+          // Check if the note is now open or closed
+          if (note.classList.contains('revealed')) {
+            // If it's open, add its number to our saved list
+            if (!openNotes.includes(index)) {
+              openNotes.push(index);
+            }
+          } else {
+            // If it's closed, remove its number from the saved list
+            openNotes = openNotes.filter(i => i !== index);
+          }
+          
+          // Save the updated list back to the browser's memory
+          localStorage.setItem(storageKey, JSON.stringify(openNotes));
         } 
       });
     });
