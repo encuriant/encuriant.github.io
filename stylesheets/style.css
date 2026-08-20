@@ -2546,7 +2546,9 @@ display: none !important;
   
   /* Keep your existing styling */
   float: none;
-  width: 85%; 
+  width: auto; 
+  margin-right: 1.5rem;
+
   background-color: transparent;
   border-radius: 0;
   padding: 0 0 0 15px; 
