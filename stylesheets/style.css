@@ -1007,6 +1007,12 @@ section.post em strong, section > p em strong {
   letter-spacing: 0.06rem;
 }
 
+/* Keeps the current tab permanently illuminated */
+.navigation .link.active {
+  color: var(--highlight-color) !important;
+}
+
+
 /* Nav Link Hover Bar */
 .link .bar { /* Flatting SCSS-like nesting */
   width: 100%;

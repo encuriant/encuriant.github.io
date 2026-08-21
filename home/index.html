@@ -97,37 +97,66 @@
       <div class="content">
 
             <nav>
-
   <div class="navigation">
     <div class="logo">
-      <a href="/home/index.html">Encuriant</a></div>
+      <a href="/home/index.html">Encuriant</a>
+    </div>
+    
     <div class="menu">
-
-  
-    <a href="/blog/index.html"  class="link">
-      <div class="title">
-      Blog
+      
+        <a href="/blog/index.html" class="link">
+          <div class="title">
+            Blog
+          </div>
+        </a>
+      
+        <a href="/library/index.html" class="link">
+          <div class="title">
+            Library
+          </div>
+        </a>
+      
+        <a href="/home/index.html" class="link">
+          <div class="title">
+            About
+          </div>
+        </a>
+      
     </div>
-    </a>
-  
-    <a href="/library/index.html"  class="link">
-      <div class="title">
-      Library
-    </div>
-    </a>
-  
-    <a href="/home/index.html"  class="link">
-      <div class="title">
-      About
-    </div>
-    </a>
-  
-    </div>
+    
     <button id="theme-toggle-button" class="font-awesome-icons">
-        <i id="theme-toggle-icon" class="fas fa-moon"></i>  <span class="visually-hidden">Toggle Dark Mode</span>
-      </button>
+      <i id="theme-toggle-icon" class="fas fa-moon"></i>  
+      <span class="visually-hidden">Toggle Dark Mode</span>
+    </button>
   </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Get the current browser URL and clean it up (remove 'index.html' and trailing slashes)
+    let currentPath = window.location.pathname.toLowerCase().replace('/index.html', '').replace(/\/$/, '');
+    if (currentPath === '') currentPath = '/'; 
+    
+    // 2. Grab all the navigation links inside your menu
+    const navLinks = document.querySelectorAll('.navigation .menu .link');
+
+    // 3. Loop through them and compare their destinations to your current URL
+    navLinks.forEach(link => {
+      // Get the link's actual destination and clean it up exactly the same way
+      let linkPath = new URL(link.href).pathname.toLowerCase().replace('/index.html', '').replace(/\/$/, '');
+      if (linkPath === '') linkPath = '/';
+      
+      // If the link points to a specific folder (like /home or /blog) and you are in that folder, light it up!
+      if (linkPath !== '/' && currentPath.startsWith(linkPath)) {
+        link.classList.add('active');
+      } 
+      // Fallback for exact matches
+      else if (linkPath === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
           <section class='post'>
             <h1></h1>
             <div class="blogbody">
