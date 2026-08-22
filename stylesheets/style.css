@@ -2543,13 +2543,13 @@ display: none !important;
   max-height: 0;
   max-width: 0; 
   overflow: hidden;
-  margin: 0; 
+  margin: 0 !important;
   border-left: 1px solid transparent;
   vertical-align: top; 
   
   /* Start fully transparent when closed */
   opacity: 0;
-  
+  padding: 0 !important;
   /* Keep your existing styling */
   float: none;
   width: auto; 
@@ -2557,7 +2557,6 @@ display: none !important;
 
   background-color: transparent;
   border-radius: 0;
-  padding: 0 0 0 15px; 
   box-shadow: none;
   font-family: "IM Fell Great Primer", serif;
   font-size: 13px;
@@ -2566,48 +2565,35 @@ display: none !important;
   text-align: justify !important;
   text-justify: inter-word !important;
   
-  /* ON CLOSE: Fade out quickly (0.2s), wait for the fade to finish, THEN collapse the height */
-  transition: opacity 0.2s ease, max-height 0.4s ease 0.2s, margin-top 0.4s ease 0.2s, margin-bottom 0.4s ease 0.2s, max-width 0s 0.6s;
+  transition: max-height 0.4s ease, 
+              margin-top 0.4s ease, 
+              margin-bottom 0.4s ease, 
+              opacity 0.4s ease, 
+              margin-left 0s 0.4s, /* <-- This stops the left shift! */
+              padding 0s 0.4s, 
+              border-color 0s 0.4s, 
+              max-width 0s 0.4s;
+
 }
 
 .marginnote.revealed {
   display: block; 
   max-width: 100%; 
   max-height: 1500px; 
-  margin: 1rem 0 1rem 1.5rem; 
+  margin: 10px 0 10px 1.5rem !important;
   border-left: 1px solid var(--nav-border-color); 
-  
+  padding: 0 0 0 15px !important;
   /* Fully visible when open (will be overridden by your dark/light AA rules below) */
   opacity: 1;
-  
-  /* ON OPEN: Expand width instantly, expand height, and fade in opacity at the same time */
-  transition: max-width 0s, max-height 0.4s ease, margin-top 0.4s ease, margin-bottom 0.4s ease, opacity 0.4s ease;
-}
-/*.marginnote {
-  display: none; 
-  float: none;
-  margin: 1rem 0 1rem 1.5rem; 
-  width: 85%; 
-  
-  background-color: transparent;
-  border: none;
-  border-left: 1px solid var(--nav-border-color); 
-  border-radius: 0;
-  padding: 0 0 0 15px; 
-  box-shadow: none;
-  
-  font-family: "IM Fell Great Primer", serif;
-  font-size: 13px;
-  line-height: 1.4;
-  color: var(--post-date-color);
-  text-align: left;
-  opacity: 0.9;
-}
-
-.marginnote.revealed {
-  display: block;
-  animation: fadeIn 0.2s ease-in-out;
-}*/
+  transition: max-width 0s, 
+              margin-left 0s, 
+              padding 0s, 
+              border-color 0s, 
+              max-height 0.4s ease, 
+              margin-top 0.4s ease, 
+              margin-bottom 0.4s ease, 
+              opacity 0.4s ease;
+ }
 
 /* Make the superscript number look interactive everywhere */
 .sidenote-mark {
@@ -2697,16 +2683,23 @@ display: none !important;
 }
 
 .index-tags {
-  font-family: "Futura", "Helvetica Neue", sans-serif;
-  font-size: 10px;
+  /* Match the classic serif font used elsewhere */
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-style: italic;
+  font-size: 13px; /* Slightly larger than before to match your footnote size */
+  
+  /* The faded styling */
   color: var(--post-date-color);
-  opacity: 0.75; /* Keeps them quiet and out of the way */
-  text-transform: lowercase;
-  letter-spacing: 0.05em;
-  margin-left: auto; /* This automatically pushes the tags to the far right edge */
+  opacity: 0.85; 
+  
+  /* Reset the modern formatting from the previous style */
+  text-transform: none;
+  letter-spacing: 0;
+  
+  /* Keep the layout alignment so it stays pushed to the right */
+  margin-left: auto; 
   text-align: right;
 }
-
 /* Mobile Adjustments */
 @media (max-width: 600px) {
   .blog-index-item {
@@ -2805,6 +2798,39 @@ display: none !important;
 .footnotes ol li p {
   text-align: justify !important;
   text-justify: inter-word !important; /* Helps the browser distribute spacing cleanly */
+}
+
+
+/* ==========================================================================
+   Figure & Captions
+   ========================================================================== */
+
+figure.academic-figure {
+  margin: 2.5rem auto; /* Generous breathing room above and below */
+  padding: 0;
+  text-align: center;  /* Centers both the image and the text */
+  max-width: 100%;
+}
+
+figure.academic-figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+figure.academic-figure figcaption {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-style: italic;
+  font-size: 14px; /* Slightly smaller than body text */
+  line-height: 1.4;
+  color: var(--post-date-color); /* Uses your faded vintage color */
+  margin-top: 12px; /* Space between the image and the caption */
+  padding: 0 20px; /* Prevents long captions from hitting the very edge */
+  opacity: 0.9;
+}
+
+/* Light mode override for perfect contrast */
+[data-theme="light"] figure.academic-figure figcaption {
+  opacity: 0.8; 
 }
 
 
