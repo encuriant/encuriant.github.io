@@ -2531,9 +2531,22 @@ display: none !important;
   }
 }
 
+
+
 /* ==========================================================================
-   15. Marginalia & Sidenotes
+   Demure / Final Notes
    ========================================================================== */
+.demure-note {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-style: italic !important;
+  font-size: 15px !important; /* Slightly smaller than your 17px body text */
+  font-weight: 400 !important;
+  line-height: 1.5;
+  color: var(--post-date-color) !important; /* Uses your signature faded ink color */
+  margin: 2.5rem 0 1rem 0 !important; /* Generous breathing room above it */
+  padding: 0 !important;
+  text-indent: 0 !important; /* Ensures no accidental paragraph indentations */
+}
 
 /* ==========================================================================
    15. Marginalia & Sidenotes (Interactive Drawer Style Everywhere)
