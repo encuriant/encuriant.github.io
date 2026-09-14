@@ -72,8 +72,8 @@
 
 &lt;p&gt;What we do understand is that this The Danube has actually sliced the city into two halves. The half I stand on is called Pest, and the half that I’m looking at is called Buda.&lt;/p&gt;
 
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-27-budapest/pest_buda.JPEG&quot; alt=&quot;Pest-Buda&quot; style=&quot;width: 40%;&quot; /&gt;
+&lt;figure class=&quot;academic-figure pull-left&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-27-budapest/pest_buda.JPEG&quot; alt=&quot;Pest-Buda&quot; style=&quot;width: 100%;&quot; /&gt;
   &lt;figcaption&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -83,8 +83,8 @@
 
 &lt;hr /&gt;
 
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-27-budapest/mr_gellert.JPEG&quot; alt=&quot;Pest-Buda&quot; style=&quot;width: 60%;&quot; /&gt;
+&lt;figure class=&quot;academic-figure pull-right&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-27-budapest/mr_gellert.JPEG&quot; alt=&quot;Pest-Buda&quot; style=&quot;width: 100%;&quot; /&gt;
   &lt;figcaption&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -103,27 +103,27 @@
 
 &lt;hr /&gt;
 
+&lt;p&gt;The grandest architecture in the city is right here in this very living room where politicians live: The Hungarian parliament. The little guide man in my handheld Nokia audio-brick tells me this room is lined by a “whopping 40 kilogram of gold”, which is interesting until you realize that 40 kilograms is barely anything, and no scientist knows what a “whopping” is to this date.&lt;/p&gt;
+
 &lt;figure class=&quot;academic-figure&quot;&gt;
   &lt;img src=&quot;/assets/images/2024-08-27-budapest/living_room.png&quot; alt=&quot;Living room&quot; style=&quot;width: 70%;&quot; /&gt;
   &lt;figcaption&gt;The photo is a bit wonky because the security escorted us out of here when we wondered out loud if the gold is tasty and if anyone ever said &lt;q&gt;let them eat gold&lt;/q&gt;.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;The grandest architecture in the city is right here in this very living room situated somewhere in The Hungarian parliament. The little guide man in my handheld Nokia audio-brick tells me this room is lined by a “whopping 40 kilogram of gold”, which is interesting until you realize that 40 kilograms is barely anything, and no scientist knows what a “whopping” is to this date.&lt;/p&gt;
-
-&lt;p&gt;The little man also says that this XXL building is built symmetrically reflecting what was a “bicameral” government until War 2, which is encouraging news, since that means I can just imagine the other half of it and give my legs a [censored] break.&lt;/p&gt;
+&lt;p&gt;The little man also says that this gigantic building is built symmetrically reflecting what was a “bicameral” government until War 2, which is encouraging news, since that means I can just imagine the other half of it and give my legs a [censored] break.&lt;/p&gt;
 
 &lt;p&gt;Two mysteries remain as I exit these grand political living quarters. Since War 2, Hungary has been a  “unicameral” government: how do they guard all this gold with one camera? To add to the mystery, as of 2024, which is the times as I speak, no one is sure who the lead man of this building is. Is it Viktor or Ban?&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-27-budapest/ronald_reagus.JPEG&quot; alt=&quot;Ronald Reagus&quot; style=&quot;width: 70%;&quot; /&gt;
-  &lt;figcaption&gt;Ronald Reagus with a foot forward as he famously said: &lt;q&gt;One step back for man, one giant leap forward for the corporatekind.&lt;/q&gt;&lt;/figcaption&gt;
+&lt;figure class=&quot;academic-figure pull-left&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-27-budapest/ronald_reagus.JPEG&quot; alt=&quot;Ronald Reagus&quot; style=&quot;width: 100%;&quot; /&gt;
+  &lt;figcaption&gt;Ronald Reagus with a foot forward as he famously said: &lt;q&gt;One step back for man, one giant leap forward for the corporatekind, who is also a man.&lt;/q&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Once you step out of the building, you will notice two things: broad daylight and then immediate darkness as you faint from the sudden daylight. You will then wake up right next to an installation of the great mummy of the great US president who was involved in the falldown of communism in Hungary. It is the great insert-adjective Ronald Reagus, named after the economic policies of his time, Reaganomics, an economics which has been penetrating our societies for years and will do so for years to come.&lt;/p&gt;
+&lt;p&gt;Glued outside the paraliament is the mummy of the US president who was involved in the falldown of communism in Hungary. It is the great Ronald Reagus, named after the economic policies of his time, Reaganomics, an economics which has been penetrating our societies for years and will do so for years to come.&lt;/p&gt;
 
-&lt;p class=&quot;demure-note&quot;&gt;&lt;em&gt;Note: An instance of the word “[censored]” had to be censored from the last line&lt;/em&gt; to be in line with latest legal laws of these  times.&lt;/p&gt;
+&lt;p class=&quot;demure-note&quot;&gt;&lt;em&gt;Note: An instance of the word “[censored]” had to be censored from the last line&lt;/em&gt; to be in line with latest legal laws of these lawful times.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -137,63 +137,65 @@
     
       <item>
         <title>Cunk on Salzburg</title>
-        <description>&lt;p&gt;Geolocated in the country of Austria is the city of Salzburg—the name, a portmanteau of the German food item “salt&quot; and an American delicacy of Germanic origins called “hamburger”, which the city of Hamburg was strangely named after even though the Germans themselves ingest food only in an efficient smoothie formula called “beer”.&lt;/p&gt;
-
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/beer.JPEG&quot; alt=&quot;Beer&quot; style=&quot;width: 30%;&quot; /&gt;
+        <description>&lt;figure class=&quot;academic-figure pull-right&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/beer.JPEG&quot; alt=&quot;Beer&quot; style=&quot;width: 60%;&quot; /&gt;
   &lt;figcaption&gt;Beer sold in solid format.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
+&lt;p&gt;Geolocated in the country of Austria is the city of Salzburg—the name, a portmanteau of the German food item “salt&quot; and an American delicacy of Germanic origins called “hamburger”, which the city of Hamburg was strangely named after even though the Germans themselves ingest food only in an efficient smoothie formula called “beer”.&lt;/p&gt;
+
 &lt;hr /&gt;
 
-&lt;p&gt;Salzburg is the location that spawned a music artist revered by anyone who pretends to understand Western classical music: the composer Wolfgang Amadeus Mode’s Art, a  man who released many tracks that topped the music charts of those days, which was probably an engraved wall in the middle of the town.&lt;/p&gt;
-
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/modesart.JPEG&quot; alt=&quot;Mode&apos;s Art&quot; style=&quot;width: 50%;&quot; /&gt;
+&lt;figure class=&quot;academic-figure pull-left&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/modesart.JPEG&quot; alt=&quot;Mode&apos;s Art&quot; style=&quot;width: 200%;&quot; /&gt;
   &lt;figcaption&gt;A statue of Mode&apos;s Art with his name printed on it in the native Austrian spelling.&lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;p&gt;Salzburg is the location that spawned a music artist revered by anyone who pretends to understand Western classical music: the composer Wolfgang Amadeus Mode’s Art, a  man who released many tracks that topped the music chart of those days, which was   probably an engraved wall in the middle of the town.&lt;/p&gt;
 
 &lt;p&gt;It is a shame that before Mode could try his luck on the world wide internet, Mode gave up on composing music altogether at the age of 35, soon after he released his last breath in 1791. Like the other dead composers of his time, he then began dabbling in what is called as decomposing.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Fast forward to this day, Austrians take immense pride in Mode’s Art’s Art and honor him by peddling these palm-sized balls of chocolate with his face on it. These sobering edibles are called Mozartkugel, which in native Austrian means “Mode’s Art’s Spheres”.&lt;/p&gt;
-
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/mozartkugel.jpeg&quot; alt=&quot;Mode&apos;s Art&apos;s Kugels&quot; style=&quot;width: 50%;&quot; /&gt;
+&lt;figure class=&quot;academic-figure pull-right&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/mozartkugel.jpeg&quot; alt=&quot;Mode&apos;s Art&apos;s Kugels&quot; style=&quot;width: 100%;&quot; /&gt;
   &lt;figcaption&gt;Mozart Kugels are also available in giant form. &lt;a href=&quot;https://www.original-mozartkugel.com/en/original-salzburger-mozartkugel-giant-mozartkugel-package-13-pieces-sw10022&quot;&gt;Source&lt;/a&gt;.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
+&lt;p&gt;Fast forward to this day, Austrians take immense pride in Mode’s Art’s Art and honor him by peddling these palm-sized balls of chocolate with his face on it. These sobering edibles are called Mozartkugel, which in native Austrian means “Mode’s Art’s Spheres”.&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;figure class=&quot;academic-figure pull-right&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/salzach.jpg&quot; alt=&quot;Salzach&quot; style=&quot;width: 100%;&quot; /&gt;
+  &lt;figcaption&gt;Salzach river from its personal &lt;a href=&quot;https://en.wikipedia.org/wiki/Salzach&quot;&gt;Wikipedia&lt;/a&gt; page. They did not bother to prefix a &quot;the&quot; behind it like they did to the The Danube.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Now, as you walk along Salzburg, you’ll notice a river flowing through, its name pronounced exactly like the French novelist Balzac, but with an “s”: Salzach.&lt;/p&gt;
 
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/salzach.jpg&quot; alt=&quot;Salzach&quot; style=&quot;width: 50%;&quot; /&gt;
-  &lt;figcaption&gt;Salzach river from its personal &lt;a href=&quot;https://en.wikipedia.org/wiki/Salzach&quot;&gt;Wikipedia&lt;/a&gt; page. Since its name rings a familiar bell, they did not bother to prefix a &quot;the&quot; behind it like they did to the The Danube.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
 &lt;hr /&gt;
 
-&lt;p&gt;One of the other distinctive hanging features of Salzburg are these metal designs hung in front of every shop, visually telling you what their business model is,  like the logo of the American hire-a-mermaid shop, Starbucks, or the like the logo of the googling machine, Google.&lt;/p&gt;
-
-&lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/guild.JPEG&quot; alt=&quot;Guilds&quot; style=&quot;width: 40%;&quot; /&gt;
-  &lt;figcaption&gt;A shop that used to sell winged horses before they become extinct. It is now a hotel for tourists at least until when tourists become extinct.&lt;/figcaption&gt;
+&lt;figure class=&quot;academic-figure pull-left&quot;&gt;
+  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/guild.JPEG&quot; alt=&quot;Guilds&quot; style=&quot;width: 100%;&quot; /&gt;
+  &lt;figcaption&gt;A shop that used to sell winged horses before they became extinct. It is now a hotel for tourists at least until when tourists are extinguished.&lt;/figcaption&gt;
 &lt;/figure&gt;
+
+&lt;p&gt;One of the other distinctive hanging features of Salzburg are these metal designs hung in front of every shop, visually telling us what their business model is,  like the logo of the American hire-a-mermaid shop, Starbucks, or the like the logo of the googling machine, Google.&lt;/p&gt;
 
 &lt;p&gt;These “guilds” date back to the mediaeval times when most peasants in the feudal system were too illiterate to even spell the times they chose to be in. Literacy was then a luxury of the powerful, unlike our egalitarian modern times, where anyone can become a well-read billionaire for free.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Near the Austrian city of Salzburg is the fairytale land of Hallstatt, often described as “picturesque”, which means that this is where hundreds of tourists queue up to take pictures of hundreds of tourists queueing up to take pictures. The name “Hallstatt” as per linguistic experts means the same as Salzburg—a salt settlement—with the key difference in how incredibly annoying it is to spell even for a linguistic man or a linguistic woman. It makes us pause and wonder about the idyllic life of an illiterate peasant person of those ages who did not know what a linguistics was.&lt;/p&gt;
+&lt;p&gt;Near the Austrian city of Salzburg is the fairytale land of Hallstatt, often described as “picturesque”, which means that this is where hundreds of tourists queue up to take pictures of hundreds of tourists queueing up to take pictures.&lt;/p&gt;
 
 &lt;figure class=&quot;academic-figure&quot;&gt;
-  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/hallstat.JPEG&quot; alt=&quot;Hallstat&quot; style=&quot;width: 60%;&quot; /&gt;
+  &lt;img src=&quot;/assets/images/2024-08-10-salzburg/hallstat.JPEG&quot; alt=&quot;Hallstat&quot; style=&quot;width: 100%;&quot; /&gt;
   &lt;figcaption&gt;Hallstatt, an instagram paradise with its famous pointy tower.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;The breathtaking land of Halsttat used to be called a “postcard village”. But postcards were eradicated after the tragic discovery that “a postcard” is just a boring sheet of paper that also exposes your intimate messages and address to anyone. Which is why the land is now more aptly called an “Instagram village”: an Instagram is much more fascinating to the brain and does not reveal your messages and location to anyone but a select few, like the people who want to sell you things and the Government.&lt;/p&gt;
+&lt;p&gt;The name “Hallstatt” as per linguistic experts means the same as Salzburg—a salt settlement—but the key difference is that it is much more annoying to spell, even for a linguistic man or a linguistic woman. (An illiterate peasant person of those ages must have led an idyllic life not knowing what a linguistics was.)&lt;/p&gt;
+
+&lt;p&gt;The breathtaking land of Halsttat used to be called a “postcard village”. But postcards were eradicated after the tragic discovery that “a postcard” is just a boring sheet of paper that also exposes your intimate messages and address to anyone. Which is why the land in modern times is more aptly called an “Instagram village”: an Instagram is much more fascinating to the brain and does not reveal your messages and location to anyone but a select few, like the people who want to sell you things and the Government.&lt;/p&gt;
 
 &lt;hr /&gt;
 

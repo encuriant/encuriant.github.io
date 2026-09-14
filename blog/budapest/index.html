@@ -222,8 +222,8 @@
 
 <p>What we do understand is that this The Danube has actually sliced the city into two halves. The half I stand on is called Pest, and the half that I’m looking at is called Buda.</p>
 
-<figure class="academic-figure">
-  <img src="/assets/images/2024-08-27-budapest/pest_buda.JPEG" alt="Pest-Buda" style="width: 40%;" />
+<figure class="academic-figure pull-left">
+  <img src="/assets/images/2024-08-27-budapest/pest_buda.JPEG" alt="Pest-Buda" style="width: 100%;" />
   <figcaption></figcaption>
 </figure>
 
@@ -233,8 +233,8 @@
 
 <hr />
 
-<figure class="academic-figure">
-  <img src="/assets/images/2024-08-27-budapest/mr_gellert.JPEG" alt="Pest-Buda" style="width: 60%;" />
+<figure class="academic-figure pull-right">
+  <img src="/assets/images/2024-08-27-budapest/mr_gellert.JPEG" alt="Pest-Buda" style="width: 100%;" />
   <figcaption></figcaption>
 </figure>
 
@@ -253,27 +253,27 @@
 
 <hr />
 
+<p>The grandest architecture in the city is right here in this very living room where politicians live: The Hungarian parliament. The little guide man in my handheld Nokia audio-brick tells me this room is lined by a “whopping 40 kilogram of gold”, which is interesting until you realize that 40 kilograms is barely anything, and no scientist knows what a “whopping” is to this date.</p>
+
 <figure class="academic-figure">
   <img src="/assets/images/2024-08-27-budapest/living_room.png" alt="Living room" style="width: 70%;" />
   <figcaption>The photo is a bit wonky because the security escorted us out of here when we wondered out loud if the gold is tasty and if anyone ever said <q>let them eat gold</q>.</figcaption>
 </figure>
 
-<p>The grandest architecture in the city is right here in this very living room situated somewhere in The Hungarian parliament. The little guide man in my handheld Nokia audio-brick tells me this room is lined by a “whopping 40 kilogram of gold”, which is interesting until you realize that 40 kilograms is barely anything, and no scientist knows what a “whopping” is to this date.</p>
-
-<p>The little man also says that this XXL building is built symmetrically reflecting what was a “bicameral” government until War 2, which is encouraging news, since that means I can just imagine the other half of it and give my legs a [censored] break.</p>
+<p>The little man also says that this gigantic building is built symmetrically reflecting what was a “bicameral” government until War 2, which is encouraging news, since that means I can just imagine the other half of it and give my legs a [censored] break.</p>
 
 <p>Two mysteries remain as I exit these grand political living quarters. Since War 2, Hungary has been a  “unicameral” government: how do they guard all this gold with one camera? To add to the mystery, as of 2024, which is the times as I speak, no one is sure who the lead man of this building is. Is it Viktor or Ban?</p>
 
 <hr />
 
-<figure class="academic-figure">
-  <img src="/assets/images/2024-08-27-budapest/ronald_reagus.JPEG" alt="Ronald Reagus" style="width: 70%;" />
-  <figcaption>Ronald Reagus with a foot forward as he famously said: <q>One step back for man, one giant leap forward for the corporatekind.</q></figcaption>
+<figure class="academic-figure pull-left">
+  <img src="/assets/images/2024-08-27-budapest/ronald_reagus.JPEG" alt="Ronald Reagus" style="width: 100%;" />
+  <figcaption>Ronald Reagus with a foot forward as he famously said: <q>One step back for man, one giant leap forward for the corporatekind, who is also a man.</q></figcaption>
 </figure>
 
-<p>Once you step out of the building, you will notice two things: broad daylight and then immediate darkness as you faint from the sudden daylight. You will then wake up right next to an installation of the great mummy of the great US president who was involved in the falldown of communism in Hungary. It is the great insert-adjective Ronald Reagus, named after the economic policies of his time, Reaganomics, an economics which has been penetrating our societies for years and will do so for years to come.</p>
+<p>Glued outside the paraliament is the mummy of the US president who was involved in the falldown of communism in Hungary. It is the great Ronald Reagus, named after the economic policies of his time, Reaganomics, an economics which has been penetrating our societies for years and will do so for years to come.</p>
 
-<p class="demure-note"><em>Note: An instance of the word “[censored]” had to be censored from the last line</em> to be in line with latest legal laws of these  times.</p>
+<p class="demure-note"><em>Note: An instance of the word “[censored]” had to be censored from the last line</em> to be in line with latest legal laws of these lawful times.</p>
 
 <hr />
 
@@ -490,7 +490,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // 6. Notes, Tooltips, & Authors (Default: 13px)
       const noteSize = Math.round(13 * currentZoom);
       const noteLine = Math.round(18 * currentZoom);
-      
+      // 7. Figure Captions (Added)
+      const captionSize = Math.round(14 * currentZoom);
+
       fontStyleSheet.innerHTML = `
         /* Main Blog Text */
         .blogbody p, .blogbody li {
@@ -523,6 +525,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .marginnote, .marginnote p, .tooltip p, .book-author {
           font-size: ${noteSize}px !important;
           line-height: ${noteLine}px !important;
+        }
+
+        /* Figure Captions */
+        .academic-figure figcaption {
+          font-size: ${captionSize}px !important;
         }
       `;
     }

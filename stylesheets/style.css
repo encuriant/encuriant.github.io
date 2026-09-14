@@ -2862,3 +2862,39 @@ figure.academic-figure figcaption {
 [data-theme="light"] .marginnote { opacity: 0.9 !important; }
 [data-theme="light"] .book-author { opacity: 0.85 !important; }
 [data-theme="light"] .sidebar-toc { opacity: 0.95 !important; }
+
+
+/* --- FIGURE FLOATS --- */
+
+/* Floats the figure right, text flows on the left */
+.academic-figure.pull-right {
+  float: right;
+  width: 45%; /* Replaces your inline 30% style for better responsiveness */
+  margin: 0 0 20px 30px !important; /* Adds breathing room to bottom and left */
+}
+
+/* Floats the figure left, text flows on the right */
+.academic-figure.pull-left {
+  float: left;
+  width: 45%; 
+  margin: 0 30px 20px 0 !important; /* Adds breathing room to bottom and right */
+}
+
+/* Base formatting for the caption to match your theme */
+.academic-figure figcaption {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  color: var(--post-date-color);
+  margin-top: 10px;
+}
+
+/* Stack vertically on mobile devices */
+@media (max-width: 768px) {
+  .academic-figure.pull-right, 
+  .academic-figure.pull-left {
+    float: none;
+    width: 100% !important; /* Forces image to full width on phones */
+    margin: 30px 0 !important; 
+  }
+}
