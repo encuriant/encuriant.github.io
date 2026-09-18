@@ -3,8 +3,8 @@
   <channel>
     <title>Encuriant</title>
     <description></description>
-    <link>http://localhost:4001</link>
-    <atom:link href="http://localhost:4001/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>The Curious Coincidence of Turn, Turner, Teetotum and Teetotaller</title>
@@ -31,8 +31,8 @@
 
 </description>
         <pubDate>Sat, 20 Dec 2025 00:00:00 -0800</pubDate>
-        <link>http://localhost:4001/blog/turn/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/turn/</guid>
+        <link>http://localhost:4000/blog/turn/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/turn/</guid>
       </item>
     
       <item>
@@ -55,8 +55,27 @@
 &lt;p class=&quot;demure-note&quot;&gt;Allyl’s well that end’s well?&lt;/p&gt;
 </description>
         <pubDate>Fri, 11 Oct 2024 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/gas-leak/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/gas-leak/</guid>
+        <link>http://localhost:4000/blog/gas-leak/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/gas-leak/</guid>
+      </item>
+    
+      <item>
+        <title>Cunk on San Francisco</title>
+        <description>&lt;p&gt;The corporate tech paradise of San Frances and Co is best known for its magestic views of the Golden Gate bridge, a bridge that, if you visit, you’ll realize, is in fact, not made of gold, foreshadowing that Silicon Valley is indeed what it claims to be: a con Valley that is trying to sell you a bridge. (insert elizabeth holmes)&lt;/p&gt;
+
+&lt;p&gt;Cloud technology.&lt;/p&gt;
+
+&lt;p&gt;Somewhere along the coastline of SF,  you’ll stumble upon this statue of a bald and bespectacled man, none other than Ben Kingsley, the Hollywood doppleganger of the Mahatma Gandhi, the Indian father of the nation, and self-proclaimed CEO of  non-violence.&lt;/p&gt;
+
+&lt;p&gt;Gandhi was known for his Dandi “March” (which as the name suggests, began in the March of 1930), when he and his fans showed that while the British colonized, genocided, enslaved, pillaged and orchestrated multi-continent wars over centuries to steal Indian spices, a lone Indian man can have a lazy day at the beach and stare into the void to extract British spices from seawater. In doing so, Gandhi broke the law and evaded taxes, two values that to this day inspire the budding trillionaires in the Valley.&lt;/p&gt;
+
+&lt;p&gt;Walk along SF and you’ll hear people talk about an agent: “Agent C”. It is a word innovated in the valley, that is not to be confused with the well-established term used by normies called “free will”. These are two very different words: they are spelled differently.&lt;/p&gt;
+
+&lt;p&gt;Down in Castro, is the gigantic pride flag that stands for a variety of sexualities, the latest being something called “Transhumanism”, a sexuality led by some of the introspectrive leaders here such as Peter Thiel and Elon Musk, authors of quotes such as “”, and “Yes”.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 17 Sep 2024 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/blog/sf/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/sf/</guid>
       </item>
     
       <item>
@@ -99,11 +118,11 @@
   &lt;figcaption&gt;We did not take this photo since they didn&apos;t let us on the terrace of the opposite building. &lt;a href=&quot;https://www.corinthia.com/en-gb/budapest&quot;&gt;Source.&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;We are now in front of the magnificent Hotel Corinthia Budapest that inspired the iconic mother-child director duo, Wes and her son to direct the movie The “The Grand Budapest Hotel”, a remake of the first ever hotel movie with freaks in it, The “The Shining”, but disappointingly, the remake was abridged for the cowards.&lt;/p&gt;
+&lt;p&gt;We are now in front of the magnificent Hotel Corinthia Budapest that inspired the iconic mother-child director duo, Wes and her son to direct the movie The “The Grand Budapest Hotel”, a remake of the first ever hotel movie with freaks in it, The “The Shining”, but the remake abridged for cowards.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;The grandest architecture in the city is right here in this very living room where politicians live: The Hungarian parliament. The little guide man in my handheld Nokia audio-brick tells me this room is lined by a “whopping 40 kilogram of gold”, which is interesting until you realize that 40 kilograms is barely anything, and no scientist knows what a “whopping” is to this date.&lt;/p&gt;
+&lt;p&gt;The grandest architecture in the city is right here in this living room of the politicians: The Hungarian parliament. The little guide man in my handheld Nokia audio-brick tells me this room is lined by a “whopping 40 kilogram of gold”, which is interesting until you realize that 40 kilograms is barely anything, and no scientist knows what a “whopping” is to this date.&lt;/p&gt;
 
 &lt;figure class=&quot;academic-figure&quot;&gt;
   &lt;img src=&quot;/assets/images/2024-08-27-budapest/living_room.png&quot; alt=&quot;Living room&quot; style=&quot;width: 70%;&quot; /&gt;
@@ -131,8 +150,8 @@
 
 </description>
         <pubDate>Tue, 27 Aug 2024 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/budapest/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/budapest/</guid>
+        <link>http://localhost:4000/blog/budapest/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/budapest/</guid>
       </item>
     
       <item>
@@ -142,7 +161,7 @@
   &lt;figcaption&gt;Beer sold in solid format.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Geolocated in the country of Austria is the city of Salzburg—the name, a portmanteau of the German food item “salt&quot; and an American delicacy of Germanic origins called “hamburger”, which the city of Hamburg was strangely named after even though the Germans themselves ingest food only in an efficient smoothie formula called “beer”.&lt;/p&gt;
+&lt;p&gt;Geolocated in the landlocked country of Austria is Salzburg, which is also surprisingly landlocked. Its name is a portmanteau of the mineral “salt&quot; and the American delicacy of Germanic origins, “hamburger”—or some etymology of that sort, surely. (A hamburger is actually named after the city of Hamburg which is fascinating because the Hamburgers themselves ingest calories only in an efficient formula called “beer”.)&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -153,7 +172,7 @@
 
 &lt;p&gt;Salzburg is the location that spawned a music artist revered by anyone who pretends to understand Western classical music: the composer Wolfgang Amadeus Mode’s Art, a  man who released many tracks that topped the music chart of those days, which was   probably an engraved wall in the middle of the town.&lt;/p&gt;
 
-&lt;p&gt;It is a shame that before Mode could try his luck on the world wide internet, Mode gave up on composing music altogether at the age of 35, soon after he released his last breath in 1791. Like the other dead composers of his time, he then began dabbling in what is called as decomposing.&lt;/p&gt;
+&lt;p&gt;It is a shame that before Mode could try his luck on the world-wide internet, Mode gave up on composing music altogether at the age of 35, soon after he released his last breath in 1791. Like the other dead composers of his time, he then began dabbling in what is called as decomposing.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -162,16 +181,16 @@
   &lt;figcaption&gt;Mozart Kugels are also available in giant form. &lt;a href=&quot;https://www.original-mozartkugel.com/en/original-salzburger-mozartkugel-giant-mozartkugel-package-13-pieces-sw10022&quot;&gt;Source&lt;/a&gt;.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Fast forward to this day, Austrians take immense pride in Mode’s Art’s Art and honor him by peddling these palm-sized balls of chocolate with his face on it. These sobering edibles are called Mozartkugel, which in native Austrian means “Mode’s Art’s Spheres”.&lt;/p&gt;
+&lt;p&gt;Fast forward to this day, Austrians honor Mode’s Art’s Art by peddling these palm-sized balls of chocolate with his face on it. These sobering edibles are called Mozartkugel, which in the native Austrian language means “Mode’s Art’s Sphericals”.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;figure class=&quot;academic-figure pull-right&quot;&gt;
+&lt;figure class=&quot;academic-figure&quot;&gt;
   &lt;img src=&quot;/assets/images/2024-08-10-salzburg/salzach.jpg&quot; alt=&quot;Salzach&quot; style=&quot;width: 100%;&quot; /&gt;
   &lt;figcaption&gt;Salzach river from its personal &lt;a href=&quot;https://en.wikipedia.org/wiki/Salzach&quot;&gt;Wikipedia&lt;/a&gt; page. They did not bother to prefix a &quot;the&quot; behind it like they did to the The Danube.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Now, as you walk along Salzburg, you’ll notice a river flowing through, its name pronounced exactly like the French novelist Balzac, but with an “s”: Salzach.&lt;/p&gt;
+&lt;p&gt;Relatedly, as you walk along Salzburg, you’ll notice a river flowing through, its name pronounced exactly like the French novelist Balzac, but with the “s”: Salzach.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -203,8 +222,8 @@
 
 </description>
         <pubDate>Sat, 10 Aug 2024 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/salzburg/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/salzburg/</guid>
+        <link>http://localhost:4000/blog/salzburg/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/salzburg/</guid>
       </item>
     
       <item>
@@ -234,8 +253,8 @@
 
 </description>
         <pubDate>Mon, 24 Jun 2024 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/north-pole/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/north-pole/</guid>
+        <link>http://localhost:4000/blog/north-pole/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/north-pole/</guid>
       </item>
     
       <item>
@@ -261,8 +280,8 @@
 
 </description>
         <pubDate>Sun, 23 Jun 2024 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/lucifer/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/lucifer/</guid>
+        <link>http://localhost:4000/blog/lucifer/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/lucifer/</guid>
       </item>
     
       <item>
@@ -281,8 +300,8 @@ yet others might, one fine night, abandon the sky for months at length, but they
 
 </description>
         <pubDate>Wed, 03 May 2023 00:00:00 -0700</pubDate>
-        <link>http://localhost:4001/blog/planets/</link>
-        <guid isPermaLink="true">http://localhost:4001/blog/planets/</guid>
+        <link>http://localhost:4000/blog/planets/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/planets/</guid>
       </item>
     
   </channel>

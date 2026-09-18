@@ -235,8 +235,8 @@
 
 <div class="post-navigation">
   <!-- We remove the inner if-statements so the anchor tag is always present to maintain spacing, utilizing visibility:hidden instead -->
-  <a id="nav-prev" href="/blog/budapest/" class="nav-arrow left-arrow" style="">
-    &laquo; Cunk on Budapest
+  <a id="nav-prev" href="/blog/sf/" class="nav-arrow left-arrow" style="">
+    &laquo; Cunk on San Francisco
   </a>
 <!-- 
   <a id="nav-random" href="#" class="nav-arrow" style="text-align: center;">
@@ -255,6 +255,8 @@
       "/blog/turn/",
     
       "/blog/gas-leak/",
+    
+      "/blog/sf/",
     
       "/blog/budapest/",
     
@@ -320,6 +322,8 @@
       ],
     
       "humor": [
+        
+          "/blog/sf/",
         
           "/blog/budapest/",
         
@@ -595,8 +599,8 @@ document.addEventListener('DOMContentLoaded', function() {
    //  so DISQUS.reset can find it.
    // so DISQUS.reset can find it.
     window.disqus_config = function () {
-  this.page.url = 'http://localhost:4001/blog/gas-leak/';
-      this.page.identifier = 'http://localhost:4001/blog/gas-leak/';
+  this.page.url = 'http://localhost:4000/blog/gas-leak/';
+      this.page.identifier = 'http://localhost:4000/blog/gas-leak/';
 
       // FIX: Define the variable actually used in the if-statement below
       // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
