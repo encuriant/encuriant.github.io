@@ -2548,6 +2548,16 @@ display: none !important;
   text-indent: 0 !important; /* Ensures no accidental paragraph indentations */
 }
 
+
+.demure-inline {
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  font-style: italic !important;
+  font-size: 15px !important; 
+  font-weight: 400 !important;
+  color: var(--post-date-color) !important;
+}
+
+
 /* ==========================================================================
    15. Marginalia & Sidenotes (Interactive Drawer Style Everywhere)
    ========================================================================== */
