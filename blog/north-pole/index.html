@@ -259,6 +259,8 @@
   // 1. Build an array of ALL posts for the general randomizer
   const allUrls = [
     
+      "/blog/earth-stopping/",
+    
       "/blog/miscellaneous-etymology/",
     
       "/blog/metro-performance/",
@@ -333,6 +335,8 @@
       ],
     
       "humor": [
+        
+          "/blog/earth-stopping/",
         
           "/blog/miscellaneous-etymology/",
         
@@ -612,8 +616,8 @@ document.addEventListener('DOMContentLoaded', function() {
    //  so DISQUS.reset can find it.
    // so DISQUS.reset can find it.
     window.disqus_config = function () {
-  this.page.url = 'http://localhost:4000/blog/north-pole/';
-      this.page.identifier = 'http://localhost:4000/blog/north-pole/';
+  this.page.url = 'http://localhost:4001/blog/north-pole/';
+      this.page.identifier = 'http://localhost:4001/blog/north-pole/';
 
       // FIX: Define the variable actually used in the if-statement below
       // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
